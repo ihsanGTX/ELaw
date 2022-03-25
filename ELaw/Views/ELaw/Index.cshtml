@@ -1,0 +1,255 @@
+﻿@using ELaw.Tools;
+@model IEnumerable<ELaw.Models.LawReview>
+
+@{
+    ViewData["Title"] = "Index";
+
+    SortModel sortModel = (SortModel)ViewData["sortModel"];
+
+    PagerModel pager = ViewBag.Pager;
+
+
+
+}
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+
+
+<div class="container-fluid btn-group">
+    <div class="col-10">
+        <h3>@ViewData["Title"]</h3>
+    </div>
+    <div class="col-2 justify-content-end">
+        <p>
+            <a asp-action="Create" class="btn btn-success">Create New</a>
+        </p>
+    </div>
+</div>
+
+<br />
+
+
+
+
+
+
+<div class="row">
+    <div class="col-12">
+        <partial name="_topBar" model="@pager" />
+    </div>
+</div>
+
+<div style="overflow-x:auto;">
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <i class="@sortModel.GetColumn("JUDGMENT_NAME").SortIcon" arial-hidden="true"></i>
+
+                <a asp-action="Index" asp-route-sortExpression="@sortModel.GetColumn("JUDGMENT_NAME").SortExpression">
+                    @Html.DisplayNameFor(model => model.JUDGMENT_NAME)
+                </a>
+            </th>
+            <th>
+                <i class="@sortModel.GetColumn("JUDGMENT_NAME_VERSUS").SortIcon" arial-hidden="true"></i>
+
+                <a asp-action="Index" asp-route-sortExpression="@sortModel.GetColumn("JUDGMENT_NAME_VERSUS").SortExpression">
+                    @Html.DisplayNameFor(model => model.JUDGMENT_NAME_VERSUS)
+                </a>
+            </th>
+            <th>
+                <i class="@sortModel.GetColumn("JUDGMENT_NAME_ADDITIONAL").SortIcon" arial-hidden="true"></i>
+
+                <a asp-action="Index" asp-route-sortExpression="@sortModel.GetColumn("JUDGMENT_NAME_ADDITIONAL").SortExpression">
+                    @Html.DisplayNameFor(model => model.JUDGMENT_NAME_ADDITIONAL)
+                </a>
+            </th>
+            <th>
+                <i class="@sortModel.GetColumn("COURT_TYPE").SortIcon" arial-hidden="true"></i>
+
+                <a asp-action="Index" asp-route-sortExpression="@sortModel.GetColumn("COURT_TYPE").SortExpression">
+                    @Html.DisplayNameFor(model => model.COURT_TYPE)
+                </a>
+            </th>
+            <th>
+                <i class="@sortModel.GetColumn("JUDGE_NAME").SortIcon" arial-hidden="true"></i>
+
+                <a asp-action="Index" asp-route-sortExpression="@sortModel.GetColumn("JUDGE_NAME").SortExpression">
+                    @Html.DisplayNameFor(model => model.JUDGE_NAME)
+                </a>
+            </th>
+            <th>
+                <i class="@sortModel.GetColumn("JUDGMENT_NUMBER").SortIcon" arial-hidden="true"></i>
+
+                <a asp-action="Index" asp-route-sortExpression="@sortModel.GetColumn("JUDGMENT_NUMBER").SortExpression">
+                    @Html.DisplayNameFor(model => model.JUDGMENT_NUMBER)
+                </a>
+            </th>
+            <th>
+                <i class="@sortModel.GetColumn("JUDGMENT_DATE").SortIcon" arial-hidden="true"></i>
+
+                <a asp-action="Index" asp-route-sortExpression="@sortModel.GetColumn("JUDGMENT_DATE").SortExpression">
+                    @Html.DisplayNameFor(model => model.JUDGMENT_DATE)
+                </a>
+            </th>
+            <th>
+                <i class="@sortModel.GetColumn("HEADNOTE").SortIcon" arial-hidden="true"></i>
+
+                <a asp-action="Index" asp-route-sortExpression="@sortModel.GetColumn("HEADNOTE").SortExpression">
+                    @Html.DisplayNameFor(model => model.HEADNOTE)
+                </a>
+            </th>
+            <th>
+                <i class="@sortModel.GetColumn("JUDGMENT_COUNTRY").SortIcon" arial-hidden="true"></i>
+
+                <a asp-action="Index" asp-route-sortExpression="@sortModel.GetColumn("JUDGMENT_COUNTRY").SortExpression">
+                    @Html.DisplayNameFor(model => model.JUDGMENT_COUNTRY)
+                </a>
+            </th>
+            <th>
+                <i class="@sortModel.GetColumn("STATE").SortIcon" arial-hidden="true"></i>
+
+                <a asp-action="Index" asp-route-sortExpression="@sortModel.GetColumn("STATE").SortExpression">
+                    @Html.DisplayNameFor(model => model.STATE)
+                </a>
+            </th>
+            <th>
+                <i class="@sortModel.GetColumn("JUDGMENT_LANGUAGE").SortIcon" arial-hidden="true"></i>
+
+                <a asp-action="Index" asp-route-sortExpression="@sortModel.GetColumn("JUDGMENT_LANGUAGE").SortExpression">
+                    @Html.DisplayNameFor(model => model.JUDGMENT_LANGUAGE)
+                </a>
+            </th>
+            <th>
+                <i class="@sortModel.GetColumn("CATCHWORD_LV1").SortIcon" arial-hidden="true"></i>
+
+                <a asp-action="Index" asp-route-sortExpression="@sortModel.GetColumn("CATCHWORD_LV1").SortExpression">
+                    @Html.DisplayNameFor(model => model.CATCHWORD_LV1)
+                </a>
+            </th>
+            <th>
+                <i class="@sortModel.GetColumn("CATCHWORD_LV2").SortIcon" arial-hidden="true"></i>
+
+                <a asp-action="Index" asp-route-sortExpression="@sortModel.GetColumn("CATCHWORD_LV2").SortExpression">
+                    @Html.DisplayNameFor(model => model.CATCHWORD_LV2)
+                </a>
+            </th>
+            <th>
+                <i class="@sortModel.GetColumn("CATCHWORD_LV3").SortIcon" arial-hidden="true"></i>
+
+                <a asp-action="Index" asp-route-sortExpression="@sortModel.GetColumn("CATCHWORD_LV3").SortExpression">
+                    @Html.DisplayNameFor(model => model.CATCHWORD_LV3)
+                </a>
+            </th>
+            <th>
+                <i class="@sortModel.GetColumn("CATCHWORD_LV4").SortIcon" arial-hidden="true"></i>
+
+                <a asp-action="Index" asp-route-sortExpression="@sortModel.GetColumn("CATCHWORD_LV4").SortExpression">
+                    @Html.DisplayNameFor(model => model.CATCHWORD_LV4)
+                </a>
+            </th>
+                        <th>
+                <i class="@sortModel.GetColumn("VERDICT").SortIcon" arial-hidden="true"></i>
+
+                <a asp-action="Index" asp-route-sortExpression="@sortModel.GetColumn("VERDICT").SortExpression">
+                    @Html.DisplayNameFor(model => model.VERDICT)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JUDGMENT_NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JUDGMENT_NAME_VERSUS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JUDGMENT_NAME_ADDITIONAL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COURT_TYPE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JUDGE_NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JUDGMENT_NUMBER)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JUDGMENT_DATE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HEADNOTE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JUDGMENT_COUNTRY)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.STATE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JUDGMENT_LANGUAGE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CATCHWORD_LV1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CATCHWORD_LV2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CATCHWORD_LV3)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CATCHWORD_LV4)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VERDICT)
+                </td>
+                <td>
+                    <div class="btn-group">
+                        <a asp-action="Edit" asp-route-id="@item.LAWREVIEW_ID">
+                            <span class="btn btn-sm btn-outline-primary">
+                                <i class="fa fa-edit" aria-hidden="true"></i>
+                            </span>
+                        </a>
+
+                        <a asp-action="Details" asp-route-id="@item.LAWREVIEW_ID">
+                            <span class="btn btn-sm btn-outline-dark">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </span>
+                        </a>
+
+                        <a asp-action="Delete" asp-route-id="@item.LAWREVIEW_ID">
+                            <span class="btn btn-sm btn-outline-danger">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </span>
+                        </a>
+
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+</div>
+
+
+<div class="row">
+    <div class="col-12">
+        <partial name="_bottomBar" model="@pager" />
+    </div>
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+
+}
+
+

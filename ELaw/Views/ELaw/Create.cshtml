@@ -1,0 +1,226 @@
+﻿@model ELaw.Models.LawReview
+
+@{
+    ViewData["Title"] = "Create";
+}
+<style>
+    .card {
+        padding: 40px;
+    }
+</style>
+<h4>Create - Document</h4>
+<div class="col-11-mx-auto pt-0 p-0">
+    <div class="card">
+        <div class="card-header bg-success text-upprecase text-white text-center" style="height:50px;">
+            <h5>Create Document</h5>
+        </div>
+        <br />
+        <!--FormArea-->
+        <form asp-action="Create">
+            <div class="cols-12">
+                <div class="row">
+                    <!--controls sectio-->
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group col-12">
+                        <label asp-for="JUDGMENT_NAME" class="control-label"></label>
+                    </div>
+                    <div class="row col-12">
+                        <div class="form-group col-3">
+                            <input asp-for="JUDGMENT_NAME" class="form-control" />
+                            <span asp-validation-for="JUDGMENT_NAME" class="text-danger"></span>
+                        </div>
+                        <div class="col-1 text-center">
+                            <label></label>
+                            <b><label>v.</label></b>
+                        </div>
+                        <div class="form-group col-3">
+                            <input asp-for="JUDGMENT_NAME_VERSUS" class="form-control" />
+                            <span asp-validation-for="JUDGMENT_NAME_VERSUS" class="text-danger"></span>
+                        </div>
+                        <div class="col-1 text-center">
+                            <label></label>
+                            <b>  <label>;</label></b>
+                        </div>
+                        <div class="form-group col-3">
+                            <input asp-for="JUDGMENT_NAME_ADDITIONAL" class="form-control" />
+                            <span asp-validation-for="JUDGMENT_NAME_ADDITIONAL" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="COURT_TYPE" class="control-label"></label>
+                        <select asp-for="COURT_TYPE" class="form-control" asp-items="ViewBag.Court_Types"></select>
+                        <span asp-validation-for="COURT_TYPE" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="JUDGE_NAME" class="control-label"></label>
+                        <select asp-for="JUDGE_NAME" class="form-control" asp-items="ViewBag.Judge_Names"></select>
+                        <span asp-validation-for="JUDGE_NAME" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="JUDGMENT_NUMBER" class="control-label"></label>
+                        <input asp-for="JUDGMENT_NUMBER" class="form-control" />
+                        <span asp-validation-for="JUDGMENT_NUMBER" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="JUDGMENT_DATE" class="control-label"></label>
+                        <input type="date" asp-for="JUDGMENT_DATE" class="form-control" />
+                        <span asp-validation-for="JUDGMENT_DATE" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-12">
+                        <label asp-for="HEADNOTE" class="control-label"></label>
+                        <textarea asp-for="HEADNOTE" cols="50" rows="10" class="form-control"></textarea>
+                        <span asp-validation-for="HEADNOTE" class="text-danger"></span>
+                    </div>
+                    <br />
+                    <div class="row col-12">
+                        <div class="form-group col-4">
+                            <label asp-for="JUDGMENT_COUNTRY" class="control-label"></label>
+                            <select id="countryId" asp-for="JUDGMENT_COUNTRY" class="form-control" asp-items="ViewBag.Judgment_Countries"></select>
+                            <span asp-validation-for="JUDGMENT_COUNTRY" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-4">
+                            <label asp-for="STATE" class="control-label"></label>
+                            <select id="stateId" asp-for="STATE" class="form-control" asp-items="ViewBag.States"></select>
+                            <span asp-validation-for="STATE" class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-4">
+                            <label asp-for="JUDGMENT_LANGUAGE" class="control-label"></label>
+                            <select asp-for="JUDGMENT_LANGUAGE" class="form-control" asp-items="ViewBag.Judgment_Languages"></select>
+                            <span asp-validation-for="JUDGMENT_LANGUAGE" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="CATCHWORD_LV1" class="control-label"></label>
+                        <select id="lstCatchword1" asp-for="CATCHWORD_LV1" class="form-control" asp-items="ViewBag.Catchword_Lv1"></select>
+                        <span asp-validation-for="CATCHWORD_LV1" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="CATCHWORD_LV2" class="control-label"></label>
+                        <select id="lstCatchword2" asp-for="CATCHWORD_LV2" class="form-control" asp-items="ViewBag.Catchword_Lv2"></select>
+                        <span asp-validation-for="CATCHWORD_LV2" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="CATCHWORD_LV3" class="control-label"></label>
+                        <select id="lstCatchword3" asp-for="CATCHWORD_LV3" class="form-control" asp-items="ViewBag.Catchword_Lv3"></select>
+                        <span asp-validation-for="CATCHWORD_LV3" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-6">
+                        <label asp-for="CATCHWORD_LV4" class="control-label"></label>
+                        <select id="lstCatchword4" asp-for="CATCHWORD_LV4" class="form-control" asp-items="ViewBag.Catchword_Lv4"></select>
+                        <span asp-validation-for="CATCHWORD_LV4" class="text-danger"></span>
+                    </div>
+                    <!--Verdict-->
+                    <div class="form-group col-6">
+                        <label asp-for="VERDICT" class="control-label"></label>
+                        <input asp-for="VERDICT" class="form-control" />
+                        <span asp-validation-for="VERDICT" class="text-danger"></span>
+                    </div>
+                    <!--Referred Case-->
+                    <div class="col-md-12">
+                        <table id="ReferredCasesTable" class="table table-sm tableHeaderNotScroll">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        REFERRED CASE
+                                    </th>
+                                    <th style="width:75px;">
+                                        <button id='btnaddReferredCase' type="button" class="btn btn-sm btn-secondary visible " onclick="AddItem(this)">Add</button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.ReferredCases.Count; i++)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" asp-for="@Model.ReferredCases[i].IsDeleted" />
+                                            @Html.EditorFor(x => x.ReferredCases[i].REFERRED_CASES, new {htmlAttributes = new {@class = "form-control"}})
+                                        </td>
+                                        <td style="width:60px;">
+
+                                            <button id='btnremove-@i' type="button" class="btn btn-sm btn-danger visible" onclick="DeleteItem(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                                        <!--Referred Legislation-->
+                    <div class="col-md-12">
+                        <table id="ReferredLegislationsTable" class="table table-sm tableHeaderNotScroll">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        REFERRED LEGISLATION
+                                    </th>
+                                    <th style="width:75px;">
+                                        <button id='btnaddReferredLegislation' type="button" class="btn btn-sm btn-secondary visible " onclick="AddItemLegislation(this)">Add</button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.ReferredLegislations.Count; i++)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" asp-for="@Model.ReferredLegislations[i].IsDeleted" />
+                                            @Html.EditorFor(x => x.ReferredLegislations[i].REFERRED_LEGISLATIONS, new {htmlAttributes = new {@class = "form-control"}})
+                                        </td>
+                                        <td style="width:60px;">
+
+                                            <button id='btnremove-@i' type="button" class="btn btn-sm btn-danger visible" onclick="DeleteItemLegislation(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group btn-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                <a class="btn btn-secondary" asp-action="index"
+                   asp-route-pg="@TempData.Peek("CurrentPage")">Back</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+@*
+<script type="text/javascript">
+$(document).ready(function ()
+{
+ $(document).ready(function () {
+        getStateListByCountryId();
+    })
+
+    $("#categoryId").change(function () {
+        getStateListByCountryId();
+    });
+
+    var getStateListByCountryId = function () {
+         $.ajax({
+            url: '@Url.Action("GetStateId","Home")',
+            type: 'GET',
+            data: {
+                Id:$('#Id').val(),
+            },
+            success: function (data) {
+                $('#stateId').find('option').remove()
+                $(data).each(
+                    function (index, item) {
+                        $('#stateId').append('<option value="' + item.stateId + '">' + item.stateId + '</option>')
+                    });
+            },
+            error: function () {
+
+            }
+           });
+    }
+</script>*@
+}

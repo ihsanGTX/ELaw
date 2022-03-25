@@ -1,0 +1,541 @@
+﻿add-migration "createNewDb" -context EDbContext   (alllist)
+
+Add-Migration "Initial-Create" -context ElawDbContext (login,register)
+update-database "Initial-Create" -context ElawDbContext
+
+
+add-migration "createDbLatest" -context EDbContext 
+
+5.0.12
+
+cascade if error check loadstate (CountryId == Id)
+cascadelist.cshtml data id
+
+
+//Appellant and others
+
+@model ELaw.Models.LawReview
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .card {
+        padding: 40px;
+    }    
+    .border {
+        border: 12px solid #000000;
+        border-radius: 10px;
+        padding: 20px;
+    }
+</style>
+<h3>Edit</h3>
+<hr />
+<div class="col-11-mx-auto pt-0 p-0">
+    <div class="card">
+        <div class="card-header bg-primary text-upprecase text-white text-center" style="height:50px;">
+            <h5>Edit Document</h5>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-12">
+                <form enctype="multipart/form-data" asp-action="Edit">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <label asp-for="JUDGMENT_NAME" class="control-label"></label>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input asp-for="JUDGMENT_NAME" class="form-control" placeholder="Person/Party A & Anor/Ors" />
+                                <span asp-validation-for="JUDGMENT_NAME" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-1 text-center">
+                            <label></label>
+                            <b><label>v.</label></b>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input asp-for="JUDGMENT_NAME_VERSUS" class="form-control" placeholder="Person/Party B & Anor/Ors" />
+                                <span asp-validation-for="JUDGMENT_NAME_VERSUS" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-1 text-center">
+                            <label></label>
+                            <b>  <label>;</label></b>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <input asp-for="JUDGMENT_NAME_ADDITIONAL" class="form-control" placeholder="Party C (Third Party)" />
+                                <span asp-validation-for="JUDGMENT_NAME_ADDITIONAL" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="COURT_TYPE" class="control-label"></label>
+                                <select asp-for="COURT_TYPE" class="form-control" asp-items="ViewBag.Court_Types" />
+                                <span asp-validation-for="COURT_TYPE" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="JUDGE_NAME" class="control-label"></label>
+                                <select asp-for="JUDGE_NAME" class="form-control" asp-items="ViewBag.Judge_Names"/>
+                                <span asp-validation-for="JUDGE_NAME" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="JUDGMENT_NUMBER" class="control-label"></label>
+                                <input asp-for="JUDGMENT_NUMBER" class="form-control" />
+                                <span asp-validation-for="JUDGMENT_NUMBER" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label asp-for="JUDGMENT_DATE" class="control-label"></label>
+                                <input type="date" asp-for="JUDGMENT_DATE" class="form-control" />
+                                <span asp-validation-for="JUDGMENT_DATE" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="HEADNOTE" class="control-label"></label>
+                        <textarea name="HEADNOTE" cols="50" rows="10" asp-for="HEADNOTE" class="form-control"></textarea>
+                        <span asp-validation-for="HEADNOTE" class="text-danger"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="JUDGMENT_COUNTRY" class="control-label"></label>
+                                <select asp-for="JUDGMENT_COUNTRY" class="form-control" asp-items="ViewBag.Judgement_Countries" />
+                                <span asp-validation-for="JUDGMENT_COUNTRY" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="STATE" class="control-label"></label>
+                                <select asp-for="STATE" class="form-control" asp-items="ViewBag.States"/>
+                                <span asp-validation-for="STATE" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="JUDGMENT_LANGUAGE" class="control-label"></label>
+                                <select asp-for="JUDGMENT_LANGUAGE" class="form-control" asp-items="ViewBag.Judgment_Languages"/>
+                                <span asp-validation-for="JUDGMENT_LANGUAGE" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="CATCHWORD_LV1" class="control-label"></label>
+                                <select asp-for="CATCHWORD_LV1" class="form-control" asp-items="ViewBag.Catchword_Lv1"/>
+                                <span asp-validation-for="CATCHWORD_LV1" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="CATCHWORD_LV2" class="control-label"></label>
+                                <select asp-for="CATCHWORD_LV2" class="form-control" asp-items="ViewBag.Catchword_Lv2"/>
+                                <span asp-validation-for="CATCHWORD_LV2" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="CATCHWORD_LV3" class="control-label"></label>
+                                <select asp-for="CATCHWORD_LV3" class="form-control" asp-items="ViewBag.Catchword_Lv3"/>
+                                <span asp-validation-for="CATCHWORD_LV3" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="CATCHWORD_LV4" class="control-label"></label>
+                                <select asp-for="CATCHWORD_LV4" class="form-control" asp-items="ViewBag.Catchword_Lv4"/>
+                                <span asp-validation-for="CATCHWORD_LV4" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container"></div>
+                    <div>
+                        <label>Counsel:</label>
+                    </div>
+                    <!--First Party-->
+                    <div class="col-md-12">
+                        <label>For the first party (Select Either One):</label>
+                    </div>
+                    <div class="border">
+                    <!--Appellant-->
+                    <div class="col-md-12">
+                        <table id="AppellantsTable" class="table table-sm tableHeaderNotScroll">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        APPELLANT
+                                    </th>
+                                    <th style="width:75px;">
+                                        <button type="button" class="btn btn-sm btn-secondary visible " onclick="AddItemAppellant(this)">Add</button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.Appellants.Count; i++)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" asp-for="@Model.Appellants[i].IsDeleted" />
+                                            @Html.EditorFor(x => x.Appellants[i].APPELLANTS, new {htmlAttributes = new {@class = "form-control"}})
+                                        </td>
+                                        <td style="width:60px;">
+
+                                            <button id='btnremove-@i' type="button" class="btn btn-sm btn-danger visible" onclick="DeleteItemAppellant(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--Applicant-->
+                    <div class="col-md-12">
+                        <table id="ApplicantsTable" class="table table-sm tableHeaderNotScroll">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        APPLICANTS
+                                    </th>
+                                    <th style="width:75px;">
+                                        <button type="button" class="btn btn-sm btn-secondary visible " onclick="AddItemApplicant(this)">Add</button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.Applicants.Count; i++)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" asp-for="@Model.Applicants[i].IsDeleted" />
+                                            @Html.EditorFor(x => x.Applicants[i].APPLICANTS, new {htmlAttributes = new {@class = "form-control"}})
+                                        </td>
+                                        <td style="width:60px;">
+
+                                            <button id='btnremove-@i' type="button" class="btn btn-sm btn-danger visible" onclick="DeleteItemApplicant(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--Claimant-->
+                    <div class="col-md-12">
+                        <table id="ClaimantsTable" class="table table-sm tableHeaderNotScroll">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        CLAIMANT
+                                    </th>
+                                    <th style="width:75px;">
+                                        <button type="button" class="btn btn-sm btn-secondary visible " onclick="AddItemClaimant(this)">Add</button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.Claimants.Count; i++)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" asp-for="@Model.Claimants[i].IsDeleted" />
+                                            @Html.EditorFor(x => x.Claimants[i].CLAIMANTS, new {htmlAttributes = new {@class = "form-control"}})
+                                        </td>
+                                        <td style="width:60px;">
+
+                                            <button id='btnremove-@i' type="button" class="btn btn-sm btn-danger visible" onclick="DeleteItemClaimant(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--Plaintiff-->
+                    <div class="col-md-12">
+                        <table id="PlaintiffsTable" class="table table-sm tableHeaderNotScroll">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        PLAINTIFF
+                                    </th>
+                                    <th style="width:75px;">
+                                        <button type="button" class="btn btn-sm btn-secondary visible " onclick="AddItemPlaintiff(this)">Add</button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.Plaintiffs.Count; i++)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" asp-for="@Model.Plaintiffs[i].IsDeleted" />
+                                            @Html.EditorFor(x => x.Plaintiffs[i].PLAINTIFFS, new {htmlAttributes = new {@class = "form-control"}})
+                                        </td>
+                                        <td style="width:60px;">
+
+                                            <button id='btnremove-@i' type="button" class="btn btn-sm btn-danger visible" onclick="DeleteItemPlaintiff(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                    <br />
+                    <!--Opposing-->
+                    <div class="col-md-12">
+                        <label>For the opposing party (Select Either One):</label>
+                    </div>
+                    <div class="border">
+                    <!--Respondent-->
+                    <div class="col-md-12">
+                        <table id="RespondentsTable" class="table table-sm tableHeaderNotScroll">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        RESPONDENT
+                                    </th>
+                                    <th style="width:75px;">
+                                        <button type="button" class="btn btn-sm btn-secondary visible " onclick="AddItemRespondent(this)">Add</button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.Respondents.Count; i++)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" asp-for="@Model.Respondents[i].IsDeleted" />
+                                            @Html.EditorFor(x => x.Respondents[i].RESPONDENTS, new {htmlAttributes = new {@class = "form-control"}})
+                                        </td>
+                                        <td style="width:60px;">
+
+                                            <button id='btnremove-@i' type="button" class="btn btn-sm btn-danger visible" onclick="DeleteItemRespondent(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--Defendant-->
+                    <div class="col-md-12">
+                        <table id="DefendentsTable" class="table table-sm tableHeaderNotScroll">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        DEFENDENT
+                                    </th>
+                                    <th style="width:75px;">
+                                        <button type="button" class="btn btn-sm btn-secondary visible " onclick="AddItemDefendent(this)">Add</button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.Defendents.Count; i++)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" asp-for="@Model.Defendents[i].IsDeleted" />
+                                            @Html.EditorFor(x => x.Defendents[i].DEFENDENTS, new {htmlAttributes = new {@class = "form-control"}})
+                                        </td>
+                                        <td style="width:60px;">
+
+                                            <button id='btnremove-@i' type="button" class="btn btn-sm btn-danger visible" onclick="DeleteItemDefendent(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--Liquidator-->
+                    <div class="col-md-12">
+                        <table id="LiquidatorsTable" class="table table-sm tableHeaderNotScroll">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        LIQUIDATOR
+                                    </th>
+                                    <th style="width:75px;">
+                                        <button type="button" class="btn btn-sm btn-secondary visible " onclick="AddItemLiquidator(this)">Add</button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.Liquidators.Count; i++)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" asp-for="@Model.Liquidators[i].IsDeleted" />
+                                            @Html.EditorFor(x => x.Liquidators[i].LIQUIDATORS, new {htmlAttributes = new {@class = "form-control"}})
+                                        </td>
+                                        <td style="width:60px;">
+
+                                            <button id='btnremove-@i' type="button" class="btn btn-sm btn-danger visible" onclick="DeleteItemLiquidator(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--Third Party-->
+                    <div class="col-md-12">
+                        <table id="ThirdPartiesTable" class="table table-sm tableHeaderNotScroll">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        THIRD PARTY
+                                    </th>
+                                    <th style="width:75px;">
+                                        <button type="button" class="btn btn-sm btn-secondary visible " onclick="AddItemThirdParty(this)">Add</button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.ThirdParties.Count; i++)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" asp-for="@Model.ThirdParties[i].IsDeleted" />
+                                            @Html.EditorFor(x => x.ThirdParties[i].THIRDPARTIES, new {htmlAttributes = new {@class = "form-control"}})
+                                        </td>
+                                        <td style="width:60px;">
+
+                                            <button id='btnremove-@i' type="button" class="btn btn-sm btn-danger visible" onclick="DeleteItemThirdParty(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--Company-->
+                    <div class="col-md-12">
+                        <table id="CompaniesTable" class="table table-sm tableHeaderNotScroll">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        COMPANY
+                                    </th>
+                                    <th style="width:75px;">
+                                        <button type="button" class="btn btn-sm btn-secondary visible " onclick="AddItemCompany(this)">Add</button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.Companies.Count; i++)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" asp-for="@Model.Companies[i].IsDeleted" />
+                                            @Html.EditorFor(x => x.Companies[i].COMPANIES, new {htmlAttributes = new {@class = "form-control"}})
+                                        </td>
+                                        <td style="width:60px;">
+
+                                            <button id='btnremove-@i' type="button" class="btn btn-sm btn-danger visible" onclick="DeleteItemCompany(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    </div>
+                    <!--Verdict-->
+                    <div class="form-group">
+                        <label asp-for="VERDICT" class="control-label"></label>
+                        <input asp-for="VERDICT" class="form-control" />
+                        <span asp-validation-for="VERDICT" class="text-danger"></span>
+                    </div>
+
+                    <!--Referred Case-->
+                    <div class="col-md-12">
+                        <table id="ReferredCasesTable" class="table table-sm tableHeaderNotScroll">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        REFERRED CASE
+                                    </th>
+                                    <th style="width:75px;">
+                                        <button id='btnaddReferredCase' type="button" class="btn btn-sm btn-secondary visible " onclick="AddItem(this)">Add</button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.ReferredCases.Count; i++)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" asp-for="@Model.ReferredCases[i].IsDeleted" />
+                                            @Html.EditorFor(x => x.ReferredCases[i].REFERRED_CASES, new {htmlAttributes = new {@class = "form-control"}})
+                                        </td>
+                                        <td style="width:60px;">
+
+                                            <button id='btnremove-@i' type="button" class="btn btn-sm btn-danger visible" onclick="DeleteItem(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--Referred Legislation-->
+                    <div class="col-md-12">
+                        <table id="ReferredLegislationsTable" class="table table-sm tableHeaderNotScroll">
+                            <thead>
+                                <tr>
+                                    <th>
+                                        REFERRED LEGISLATION
+                                    </th>
+                                    <th style="width:75px;">
+                                        <button type="button" class="btn btn-sm btn-secondary visible " onclick="AddItemLegislation(this)">Add</button>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @for (int i = 0; i < Model.ReferredLegislations.Count; i++)
+                                {
+                                    <tr>
+                                        <td>
+                                            <input type="hidden" asp-for="@Model.ReferredLegislations[i].IsDeleted" />
+                                            @Html.EditorFor(x => x.ReferredLegislations[i].REFERRED_LEGISLATIONS, new {htmlAttributes = new {@class = "form-control"}})
+                                        </td>
+                                        <td style="width:60px;">
+
+                                            <button id='btnremove-@i' type="button" class="btn btn-sm btn-danger visible" onclick="DeleteItemLegislation(this)">Delete</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+
+
+
+
+
+            <input type="hidden" id="hdnLastIndex" value="0" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+
+
+}

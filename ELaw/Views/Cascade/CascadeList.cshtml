@@ -1,0 +1,39 @@
+﻿@model ELaw.Models.JUDGMENT_COUNTRY
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<select id="CountryList" asp-items="@ViewBag.Judgement_Countries">
+    <option value="-1">Select Country</option>
+</select>
+<select id="StateList">
+
+</select>
+
+@section scripts{
+<script>
+   $(document).ready(function () {
+    $("#Countrylist").on("change", function () {
+        $.ajax({
+            type: "Post",
+            url: "/Home/GetState",
+            data: { "Judgment_Country_Id": $("#CountryList").val() },
+            success: function (response) {
+                var items - '";
+                $(response).each(function () {
+                    items += "coption value=" +this.value + ">" + this.text + "</option>";
+                })
+                $("#Statelist").html(items);
+            ),
+            failure: function (response) {
+                alert(response.responseText);
+            },
+            error: function (response) {
+                alert(response.responseText);
+            }
+        });
+    });
+}); 
+</script>
+
+}
