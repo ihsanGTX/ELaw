@@ -23,14 +23,14 @@ namespace ELaw.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Name_Lv1 { get; set; }
+        public string Name { get; set; }
 
     }
     public class CATCHWORD_LV2
     {
         [Key]
         public int Id { get; set; }
-        public string Name_Lv2 { get; set; }
+        public string Name { get; set; }
 
         public int Catch1_Id { get; set; }
     }
@@ -38,10 +38,7 @@ namespace ELaw.Models
     {
         [Key]
         public int Id { get; set; }
-
-        [Required]
-        [StringLength(25)]
-        public string Name_Lv3 { get; set; }
+        public string Name { get; set; }
 
         public int Catch2_Id { get; set; }
     }
@@ -49,7 +46,7 @@ namespace ELaw.Models
     {
         [Key]
         public int Id { get; set; }
-        public string Name_Lv4 { get; set; }
+        public string Name { get; set; }
         public int Catch3_Id { get; set; }
     }
     public class JUDGMENT_LANGUAGE

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ELaw.Migrations.EDb
 {
     [DbContext(typeof(EDbContext))]
-    [Migration("20220324084220_test")]
-    partial class test
+    [Migration("20220327164535_newDba")]
+    partial class newDba
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,7 +28,7 @@ namespace ELaw.Migrations.EDb
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name_Lv1")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -46,7 +46,7 @@ namespace ELaw.Migrations.EDb
                     b.Property<int>("Catch1_Id")
                         .HasColumnType("int");
 
-                    b.Property<string>("Name_Lv2")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -64,10 +64,8 @@ namespace ELaw.Migrations.EDb
                     b.Property<int>("Catch2_Id")
                         .HasColumnType("int");
 
-                    b.Property<string>("Name_Lv3")
-                        .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -84,7 +82,7 @@ namespace ELaw.Migrations.EDb
                     b.Property<int>("Catch3_Id")
                         .HasColumnType("int");
 
-                    b.Property<string>("Name_Lv4")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

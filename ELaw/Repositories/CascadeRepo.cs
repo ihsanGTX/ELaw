@@ -49,9 +49,9 @@ namespace ELaw.Repositories
                 if (SortProperty.ToLower() == "name")
                 {
                     if (sortOrder == SortOrder.Ascending)
-                        items = items.OrderBy(n => n.Name_Lv1).ToList();
+                        items = items.OrderBy(n => n.Name).ToList();
                     else
-                        items = items.OrderByDescending(n => n.Name_Lv1).ToList();
+                        items = items.OrderByDescending(n => n.Name).ToList();
                 }
 
                 return items;
@@ -63,7 +63,7 @@ namespace ELaw.Repositories
 
                 if (SearchText != "" && SearchText != null)
                 {
-                    items = _context.Catchword_Lv1.Where(n => n.Name_Lv1.Contains(SearchText))
+                    items = _context.Catchword_Lv1.Where(n => n.Name.Contains(SearchText))
                         .ToList();
                 }
                 else
@@ -83,7 +83,7 @@ namespace ELaw.Repositories
             }
             public bool IsItemExists(string name)
             {
-                int ct = _context.Catchword_Lv1.Where(n => n.Name_Lv1.ToLower() == name.ToLower()).Count();
+                int ct = _context.Catchword_Lv1.Where(n => n.Name.ToLower() == name.ToLower()).Count();
                 if (ct > 0)
                     return true;
                 else
@@ -92,7 +92,7 @@ namespace ELaw.Repositories
 
             public bool IsItemExists(string name, int Id)
             {
-                int ct = _context.Catchword_Lv1.Where(n => n.Name_Lv1.ToLower() == name.ToLower() && n.Id != Id).Count();
+                int ct = _context.Catchword_Lv1.Where(n => n.Name.ToLower() == name.ToLower() && n.Id != Id).Count();
                 if (ct > 0)
                     return true;
                 else
@@ -136,9 +136,9 @@ namespace ELaw.Repositories
                 if (SortProperty.ToLower() == "name")
                 {
                     if (sortOrder == SortOrder.Ascending)
-                        items = items.OrderBy(n => n.Name_Lv2).ToList();
+                        items = items.OrderBy(n => n.Name).ToList();
                     else
-                        items = items.OrderByDescending(n => n.Name_Lv2).ToList();
+                        items = items.OrderByDescending(n => n.Name).ToList();
                 }
 
                 return items;
@@ -150,7 +150,7 @@ namespace ELaw.Repositories
 
                 if (SearchText != "" && SearchText != null)
                 {
-                    items = _context.Catchword_Lv2.Where(n => n.Name_Lv2.Contains(SearchText))
+                    items = _context.Catchword_Lv2.Where(n => n.Name.Contains(SearchText))
                         .ToList();
                 }
                 else
@@ -170,7 +170,7 @@ namespace ELaw.Repositories
             }
             public bool IsItemExists(string name)
             {
-                int ct = _context.Catchword_Lv2.Where(n => n.Name_Lv2.ToLower() == name.ToLower()).Count();
+                int ct = _context.Catchword_Lv2.Where(n => n.Name.ToLower() == name.ToLower()).Count();
                 if (ct > 0)
                     return true;
                 else
@@ -179,7 +179,7 @@ namespace ELaw.Repositories
 
             public bool IsItemExists(string name, int Id)
             {
-                int ct = _context.Catchword_Lv2.Where(n => n.Name_Lv2.ToLower() == name.ToLower() && n.Id != Id).Count();
+                int ct = _context.Catchword_Lv2.Where(n => n.Name.ToLower() == name.ToLower() && n.Id != Id).Count();
                 if (ct > 0)
                     return true;
                 else
@@ -223,9 +223,9 @@ namespace ELaw.Repositories
                 if (SortProperty.ToLower() == "name")
                 {
                     if (sortOrder == SortOrder.Ascending)
-                        items = items.OrderBy(n => n.Name_Lv3).ToList();
+                        items = items.OrderBy(n => n.Name).ToList();
                     else
-                        items = items.OrderByDescending(n => n.Name_Lv3).ToList();
+                        items = items.OrderByDescending(n => n.Name).ToList();
                 }
 
                 return items;
@@ -237,7 +237,7 @@ namespace ELaw.Repositories
 
                 if (SearchText != "" && SearchText != null)
                 {
-                    items = _context.Catchword_Lv3.Where(n => n.Name_Lv3.Contains(SearchText))
+                    items = _context.Catchword_Lv3.Where(n => n.Name.Contains(SearchText))
                         .ToList();
                 }
                 else
@@ -257,7 +257,7 @@ namespace ELaw.Repositories
             }
             public bool IsItemExists(string name)
             {
-                int ct = _context.Catchword_Lv3.Where(n => n.Name_Lv3.ToLower() == name.ToLower()).Count();
+                int ct = _context.Catchword_Lv3.Where(n => n.Name.ToLower() == name.ToLower()).Count();
                 if (ct > 0)
                     return true;
                 else
@@ -266,7 +266,7 @@ namespace ELaw.Repositories
 
             public bool IsItemExists(string name, int Id)
             {
-                int ct = _context.Catchword_Lv3.Where(n => n.Name_Lv3.ToLower() == name.ToLower() && n.Id != Id).Count();
+                int ct = _context.Catchword_Lv3.Where(n => n.Name.ToLower() == name.ToLower() && n.Id != Id).Count();
                 if (ct > 0)
                     return true;
                 else
@@ -310,9 +310,9 @@ namespace ELaw.Repositories
                 if (SortProperty.ToLower() == "name")
                 {
                     if (sortOrder == SortOrder.Ascending)
-                        items = items.OrderBy(n => n.Name_Lv4).ToList();
+                        items = items.OrderBy(n => n.Name).ToList();
                     else
-                        items = items.OrderByDescending(n => n.Name_Lv4).ToList();
+                        items = items.OrderByDescending(n => n.Name).ToList();
                 }
 
                 return items;
@@ -324,7 +324,7 @@ namespace ELaw.Repositories
 
                 if (SearchText != "" && SearchText != null)
                 {
-                    items = _context.Catchword_Lv4.Where(n => n.Name_Lv4.Contains(SearchText))
+                    items = _context.Catchword_Lv4.Where(n => n.Name.Contains(SearchText))
                         .ToList();
                 }
                 else
@@ -344,7 +344,7 @@ namespace ELaw.Repositories
             }
             public bool IsItemExists(string name)
             {
-                int ct = _context.Catchword_Lv4.Where(n => n.Name_Lv4.ToLower() == name.ToLower()).Count();
+                int ct = _context.Catchword_Lv4.Where(n => n.Name.ToLower() == name.ToLower()).Count();
                 if (ct > 0)
                     return true;
                 else
@@ -353,7 +353,7 @@ namespace ELaw.Repositories
 
             public bool IsItemExists(string name, int Id)
             {
-                int ct = _context.Catchword_Lv4.Where(n => n.Name_Lv4.ToLower() == name.ToLower() && n.Id != Id).Count();
+                int ct = _context.Catchword_Lv4.Where(n => n.Name.ToLower() == name.ToLower() && n.Id != Id).Count();
                 if (ct > 0)
                     return true;
                 else
@@ -952,8 +952,8 @@ namespace ELaw.Repositories
 
                 if (SearchText != "" && SearchText != null)
                 {
-                    items = _context.LawReviews.Where(n => n.LAWREVIEW_ID.ToString().Contains(SearchText) || n.JUDGMENT_NAME.Contains(SearchText) || n.JUDGMENT_NAME_VERSUS.Contains(SearchText) || n.JUDGMENT_NAME_ADDITIONAL.Contains(SearchText) || n.Court_Types.Name.Contains(SearchText) || n.Judge_Names.Name.Contains(SearchText) || n.JUDGMENT_NUMBER.Contains(SearchText) || n.JUDGMENT_DATE.Contains(SearchText) || n.HEADNOTE.Contains(SearchText) || n.Judgment_Countries.Name.Contains(SearchText) || n.States.Name.Contains(SearchText) || n.Judgment_Languages.Name.Contains(SearchText) || n.Catchword_Lv1.Name_Lv1.Contains(SearchText) || n.Catchword_Lv2.Name_Lv2.Contains(SearchText) || n.Catchword_Lv3.Name_Lv3.Contains(SearchText) || n.Catchword_Lv4.Name_Lv4.Contains(SearchText) || n.VERDICT.Contains(SearchText))
-                        .Include(u => u.Court_Types)
+                    items = _context.LawReviews.Where(n => n.LAWREVIEW_ID.ToString().Contains(SearchText) || n.JUDGMENT_NAME.Contains(SearchText) || n.JUDGMENT_NAME_VERSUS.Contains(SearchText) || n.JUDGMENT_NAME_ADDITIONAL.Contains(SearchText) || n.Court_Types.Name.Contains(SearchText) || n.Judge_Names.Name.Contains(SearchText) || n.JUDGMENT_NUMBER.Contains(SearchText) || n.JUDGMENT_DATE.Contains(SearchText) || n.HEADNOTE.Contains(SearchText) || n.Judgment_Countries.Name.Contains(SearchText) || n.States.Name.Contains(SearchText) || n.Judgment_Languages.Name.Contains(SearchText) || n.Catchword_Lv1.Name.Contains(SearchText) || n.Catchword_Lv2.Name.Contains(SearchText) || n.Catchword_Lv3.Name.Contains(SearchText) || n.Catchword_Lv4.Name.Contains(SearchText) || n.VERDICT.Contains(SearchText))
+                        .Include(n => n.Court_Types).Include(v => v.Judgment_Countries).Include(s => s.Judge_Names.Name)
                         .ToList();
                 }
                 else

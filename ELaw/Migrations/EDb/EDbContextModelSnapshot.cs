@@ -26,7 +26,7 @@ namespace ELaw.Migrations.EDb
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name_Lv1")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -44,7 +44,7 @@ namespace ELaw.Migrations.EDb
                     b.Property<int>("Catch1_Id")
                         .HasColumnType("int");
 
-                    b.Property<string>("Name_Lv2")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -62,10 +62,8 @@ namespace ELaw.Migrations.EDb
                     b.Property<int>("Catch2_Id")
                         .HasColumnType("int");
 
-                    b.Property<string>("Name_Lv3")
-                        .IsRequired()
-                        .HasMaxLength(25)
-                        .HasColumnType("nvarchar(25)");
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -82,7 +80,7 @@ namespace ELaw.Migrations.EDb
                     b.Property<int>("Catch3_Id")
                         .HasColumnType("int");
 
-                    b.Property<string>("Name_Lv4")
+                    b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");

@@ -47,7 +47,7 @@
                         </div>
                     </div>
                     <div class="form-group col-6">
-                        <label asp-for="COURT_TYPE" class="control-label"></label>
+                        <label asp-for="COURT_TYPE" class="control-label"></label><br />
                         <select asp-for="COURT_TYPE" class="form-control" asp-items="ViewBag.Court_Types"></select>
                         <span asp-validation-for="COURT_TYPE" class="text-danger"></span>
                     </div>
@@ -75,12 +75,13 @@
                     <div class="row col-12">
                         <div class="form-group col-4">
                             <label asp-for="JUDGMENT_COUNTRY" class="control-label"></label>
-                            <select id="countryId" asp-for="JUDGMENT_COUNTRY" class="form-control" asp-items="ViewBag.Judgment_Countries"></select>
+                            <select id="Countrylist" asp-for="JUDGMENT_COUNTRY" class="form-control" asp-items="ViewBag.Judgment_Countries">
+                            </select>
                             <span asp-validation-for="JUDGMENT_COUNTRY" class="text-danger"></span>
                         </div>
                         <div class="form-group col-4">
                             <label asp-for="STATE" class="control-label"></label>
-                            <select id="stateId" asp-for="STATE" class="form-control" asp-items="ViewBag.States"></select>
+                            <select id="Statelist" asp-for="STATE" class="form-control" asp-items="ViewBag.States"></select>
                             <span asp-validation-for="STATE" class="text-danger"></span>
                         </div>
                         <div class="form-group col-4">
@@ -91,22 +92,22 @@
                     </div>
                     <div class="form-group col-6">
                         <label asp-for="CATCHWORD_LV1" class="control-label"></label>
-                        <select id="lstCatchword1" asp-for="CATCHWORD_LV1" class="form-control" asp-items="ViewBag.Catchword_Lv1"></select>
+                        <select id="Catchlv1" asp-for="CATCHWORD_LV1" class="form-control" asp-items="ViewBag.Catchword_Lv1"></select>
                         <span asp-validation-for="CATCHWORD_LV1" class="text-danger"></span>
                     </div>
                     <div class="form-group col-6">
                         <label asp-for="CATCHWORD_LV2" class="control-label"></label>
-                        <select id="lstCatchword2" asp-for="CATCHWORD_LV2" class="form-control" asp-items="ViewBag.Catchword_Lv2"></select>
+                        <select id="Catchlv2" asp-for="CATCHWORD_LV2" class="form-control" asp-items="ViewBag.Catchword_Lv2"></select>
                         <span asp-validation-for="CATCHWORD_LV2" class="text-danger"></span>
                     </div>
                     <div class="form-group col-6">
                         <label asp-for="CATCHWORD_LV3" class="control-label"></label>
-                        <select id="lstCatchword3" asp-for="CATCHWORD_LV3" class="form-control" asp-items="ViewBag.Catchword_Lv3"></select>
+                        <select id="Catchlv3" asp-for="CATCHWORD_LV3" class="form-control" asp-items="ViewBag.Catchword_Lv3"></select>
                         <span asp-validation-for="CATCHWORD_LV3" class="text-danger"></span>
                     </div>
                     <div class="form-group col-6">
                         <label asp-for="CATCHWORD_LV4" class="control-label"></label>
-                        <select id="lstCatchword4" asp-for="CATCHWORD_LV4" class="form-control" asp-items="ViewBag.Catchword_Lv4"></select>
+                        <select id="Catchlv4" asp-for="CATCHWORD_LV4" class="form-control" asp-items="ViewBag.Catchword_Lv4"></select>
                         <span asp-validation-for="CATCHWORD_LV4" class="text-danger"></span>
                     </div>
                     <!--Verdict-->
@@ -191,6 +192,87 @@
     @{
     await Html.RenderPartialAsync("_ValidationScriptsPartial");
 }
+<script>
+    $(document).ready(function (){
+        $('#Countrylist').change(function(){
+            var url = '@Url.Content("~/")' + "ELaw/GetStateList";
+            var ddlsource = "#Countrylist";
+            $.getJSON(url, { Id: $(ddlsource).val()}, function (data){
+            var items = '';
+                $.each(data, function (i,statelist){
+                    if (statelist == null){
+                        $("#Statelist").empty();
+                    }
+                    else {
+                        items += "<option value='" + statelist.id + "'>" + statelist.name + "</option>";
+                    }
+
+                });
+                $("#Statelist").html(items);
+            });
+        })
+        $('#Catchlv1').change(function(){
+            var url = '@Url.Content("~/")' + "ELaw/GetCatchlv2";
+            var ddlsource = "#Catchlv1";
+            $.getJSON(url, { Id: $(ddlsource).val()}, function (data){
+            var items = '';
+                $.each(data, function (i,catchlv2){
+                    if (catchlv2 == null){
+                        $("#Catchlv2").empty();
+                    }
+                    else {
+                        items += "<option value='" + catchlv2.id + "'>" + catchlv2.name + "</option>";
+                    }
+
+                });
+                $("#Catchlv2").html(items);
+            });
+        })
+        $('#Catchlv2').change(function(){
+            var url = '@Url.Content("~/")' + "ELaw/GetCatchlv3";
+            var ddlsource = "#Catchlv2";
+            $.getJSON(url, { Id: $(ddlsource).val()}, function (data){
+            var items = '';
+                $.each(data, function (i,catchlv3){
+                    if (catchlv3 == null){
+                        $("#Catchlv3").empty();
+                    }
+                    else {
+                        items += "<option value='" + catchlv3.id + "'>" + catchlv3.name + "</option>";
+                    }
+
+                });
+                $("#Catchlv3").html(items);
+            });
+        })
+        $('#Catchlv3').change(function(){
+            var url = '@Url.Content("~/")' + "ELaw/GetCatchlv4";
+            var ddlsource = "#Catchlv3";
+            $.getJSON(url, { Id: $(ddlsource).val()}, function (data){
+            var items = '';
+                $.each(data, function (i,catchlv4){
+                    if (catchlv4 == null){
+                        $("#Catchlv4").empty();
+                    }
+                    else {
+                        items += "<option value='" + catchlv4.id + "'>" + catchlv4.name + "</option>";
+                    }
+
+                });
+                $("#Catchlv4").html(items);
+            });
+        })
+    })
+</script>
+
+@*<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.8.13/dist/css/select2.min.css" />
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $('#Countrylist').select2();
+    });
+</script>*@
 @*
 <script type="text/javascript">
 $(document).ready(function ()

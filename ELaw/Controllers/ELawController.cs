@@ -11,6 +11,13 @@ using System.Threading.Tasks;
 using static ELaw.Interfaces.ICascade;
 using ELaw.Tools;
 using Microsoft.AspNetCore.Authorization;
+using System.Xml.Serialization;
+using System.IO;
+using System.Xml;
+using System.Text;
+using System.Xml.Linq;
+using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 
 namespace ELaw.Controllers
 {
@@ -49,6 +56,46 @@ namespace ELaw.Controllers
         {
             LawReviews = await _context.LawReviews.ToListAsync();
         }
+
+
+        //public IActionResult SaveDocument()
+        //{
+        //    XmlSerializer serializer = new XmlSerializer(typeof(LawReview));
+        //    //get the data you want from the database
+        //    LawReview po = _context.LawReviews.Include(a => a.ReferredCases).ToList()
+        //    var stream = new MemoryStream();
+        //    //serialize to xml
+        //    serializer.Serialize(stream, po);
+
+        //    //download the xml file
+        //    return File(stream.ToArray(), "application/xml", "test.xml");
+        //}
+        //public XmlDocument SaveDocument(XmlDocument document, String path)
+        //{
+        //    using (StreamWriter stream = new StreamWriter("test.xml", false, Encoding.GetEncoding("iso-8859-7")))
+        //    {
+        //        document.Save(stream);
+        //    }
+        //    return (document);
+        //}
+
+        //protected void SaveDocument(object sender, EventArgs e)
+        //{
+        //    using (EDbContext db = new EDbContext())
+        //    {
+        //        List<LawReview> lawReviews = db.LawReviews.ToList();
+        //        if (lawReviews.Count > 0)
+        //        {
+        //            var xEle = new XElement("LawReview", from LawReview in lawReviews select new XElement ("LawReview", 
+        //                new XElement("LAWREVIEW_ID", LawReview.LAWREVIEW_ID)
+        //                ));
+        //            HttpContext context = HttpContext.Current;
+        //            context.Response.Write(xEle);
+        //            context.Response.ContentType = "application/xml";
+        //            context.Response.AppendHeader("Content-Disposition", "attachment; filename");
+        //        }
+        //    }    
+        //}
 
         //Document LawReview
         public IActionResult Index(string sortExpression = "", string SearchText = "", int pg = 1, int pageSize = 5)
@@ -97,10 +144,37 @@ namespace ELaw.Controllers
 
             TempData["CurrentPage"] = pg;
 
-
             return View(LawReviews);
         }
+        [HttpGet]
+        public IActionResult SaveXml()
+        {
+            LawReview lawreview = new LawReview();
 
+            ViewBag.Court_Types = GetCourt_Types();
+            ViewBag.Judge_Names = GetJudge_Names();
+            ViewBag.Judgment_Countries = GetJudgment_Countries();
+            ViewBag.Judgment_Languages = GetJudgment_Languages();
+            ViewBag.States = GetStates();
+            ViewBag.Catchword_Lv1 = GetCatchword_Lv1();
+            ViewBag.Catchword_Lv2 = GetCatchword_Lv2();
+            ViewBag.Catchword_Lv3 = GetCatchword_Lv3();
+            ViewBag.Catchword_Lv4 = GetCatchword_Lv4();
+
+            lawreview.ReferredCases.Add(new ReferredCase() { REFERRED_CASES_ID = 1 });
+            lawreview.ReferredLegislations.Add(new ReferredLegislation() { REFERRED_LEGISLATION_ID = 1 });
+            return View(lawreview);
+        }
+
+        [HttpPost]
+        public IActionResult SaveXml(LawReview lawreview)
+        {
+            lawreview.ReferredCases.RemoveAll(n => n.IsDeleted == true);
+            lawreview.ReferredLegislations.RemoveAll(n => n.IsDeleted == true);
+            lawreview = _lawReviewRepo.Create(lawreview);
+            _context.Add(lawreview);
+            return RedirectToAction("Index");
+        }
         [HttpGet]
         public IActionResult Create()
         {
@@ -146,7 +220,6 @@ namespace ELaw.Controllers
             //lawreview.ThirdParties.RemoveAll(n => n.IsDeleted == true);
             lawreview = _lawReviewRepo.Create(lawreview);
             _context.Add(lawreview);
-            _context.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -331,7 +404,7 @@ namespace ELaw.Controllers
             var defItem = new SelectListItem()
             {
                 Value = "",
-                Text = "----Select Country----"
+                Text = "----Select State----"
             };
             lstStates.Insert(0, defItem);
 
@@ -366,7 +439,7 @@ namespace ELaw.Controllers
             lstCatchword_Lv1 = Catchword_Lv1.Select(ut => new SelectListItem()
             {
                 Value = ut.Id.ToString(),
-                Text = ut.Name_Lv1
+                Text = ut.Name
             }).ToList();
 
             var defItem = new SelectListItem()
@@ -387,7 +460,7 @@ namespace ELaw.Controllers
             lstCatchword_Lv1 = Catchword_Lv2.Select(ut => new SelectListItem()
             {
                 Value = ut.Id.ToString(),
-                Text = ut.Name_Lv2
+                Text = ut.Name
             }).ToList();
 
             var defItem = new SelectListItem()
@@ -408,7 +481,7 @@ namespace ELaw.Controllers
             lstCatchword_Lv3 = Catchword_Lv3.Select(ut => new SelectListItem()
             {
                 Value = ut.Id.ToString(),
-                Text = ut.Name_Lv3
+                Text = ut.Name
             }).ToList();
 
             var defItem = new SelectListItem()
@@ -429,7 +502,7 @@ namespace ELaw.Controllers
             lstCatchword_Lv4 = Catchword_Lv4.Select(ut => new SelectListItem()
             {
                 Value = ut.Id.ToString(),
-                Text = ut.Name_Lv4
+                Text = ut.Name
             }).ToList();
 
             var defItem = new SelectListItem()
@@ -442,6 +515,32 @@ namespace ELaw.Controllers
 
             return lstCatchword_Lv4;
 
+        }
+
+        //Json
+        [HttpGet]
+        public JsonResult GetStateList(int Id)
+        {
+            var Items = _context.States.Where(x => x.Judgment_Country_Id == Id).ToList();
+            return Json(Items);
+        }
+        [HttpGet]
+        public JsonResult GetCatchlv2(int Id)
+        {
+            var Items = _context.Catchword_Lv2.Where(x => x.Catch1_Id == Id).ToList();
+            return Json(Items);
+        }
+        [HttpGet]
+        public JsonResult GetCatchlv3(int Id)
+        {
+            var Items = _context.Catchword_Lv3.Where(x => x.Catch2_Id == Id).ToList();
+            return Json(Items);
+        }
+        [HttpGet]
+        public JsonResult GetCatchlv4(int Id)
+        {
+            var Items = _context.Catchword_Lv4.Where(x => x.Catch3_Id == Id).ToList();
+            return Json(Items);
         }
     }
 }

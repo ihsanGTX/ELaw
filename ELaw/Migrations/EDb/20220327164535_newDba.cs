@@ -2,7 +2,7 @@
 
 namespace ELaw.Migrations.EDb
 {
-    public partial class test : Migration
+    public partial class newDba : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,7 @@ namespace ELaw.Migrations.EDb
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name_Lv1 = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -25,7 +25,7 @@ namespace ELaw.Migrations.EDb
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name_Lv2 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Catch1_Id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -39,7 +39,7 @@ namespace ELaw.Migrations.EDb
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name_Lv3 = table.Column<string>(type: "nvarchar(25)", maxLength: 25, nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Catch2_Id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -53,7 +53,7 @@ namespace ELaw.Migrations.EDb
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name_Lv4 = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Catch3_Id = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
