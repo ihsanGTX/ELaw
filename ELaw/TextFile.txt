@@ -6,6 +6,8 @@ update-database "Initial-Create" -context ElawDbContext
 
 add-migration "createDbLatest" -context EDbContext 
 
+
+class>edb>interface>repo>controller>view(crud)>startup
 5.0.12
 
 cascade if error check loadstate (CountryId == Id)

@@ -31,12 +31,13 @@
                     <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                         <ul class="navbar-nav flex-grow-1">
                             {
-
+                              @if (SignInManager.IsSignedIn(User))
+                             {
                                 <li class="dropdown nav-item pr-2">
                                     <a class="nav-link dropdown-toggle @menuTextColor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                         Cases
                                     </a>
-                                        
+                                      
                                     <ul class="dropdown-menu" style="background:linear-gradient(to right,#000000,#000000);">
                                         <li class="nav-item">
                                             <a class="nav-link @menuTextColor" asp-area="" asp-controller="ELaw" asp-action="Index">Documents</a>
@@ -46,7 +47,7 @@
                                     </ul>
 
                                 </li>
-
+                              }
 
                             }
                         </ul>

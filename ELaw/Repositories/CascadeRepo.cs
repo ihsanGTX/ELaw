@@ -953,12 +953,12 @@ namespace ELaw.Repositories
                 if (SearchText != "" && SearchText != null)
                 {
                     items = _context.LawReviews.Where(n => n.LAWREVIEW_ID.ToString().Contains(SearchText) || n.JUDGMENT_NAME.Contains(SearchText) || n.JUDGMENT_NAME_VERSUS.Contains(SearchText) || n.JUDGMENT_NAME_ADDITIONAL.Contains(SearchText) || n.Court_Types.Name.Contains(SearchText) || n.Judge_Names.Name.Contains(SearchText) || n.JUDGMENT_NUMBER.Contains(SearchText) || n.JUDGMENT_DATE.Contains(SearchText) || n.HEADNOTE.Contains(SearchText) || n.Judgment_Countries.Name.Contains(SearchText) || n.States.Name.Contains(SearchText) || n.Judgment_Languages.Name.Contains(SearchText) || n.Catchword_Lv1.Name.Contains(SearchText) || n.Catchword_Lv2.Name.Contains(SearchText) || n.Catchword_Lv3.Name.Contains(SearchText) || n.Catchword_Lv4.Name.Contains(SearchText) || n.VERDICT.Contains(SearchText))
-                        .Include(n => n.Court_Types).Include(v => v.Judgment_Countries).Include(s => s.Judge_Names.Name)
+                        .Include(u => u.Court_Types).Include(r => r.Judge_Names).Include(s => s.Judgment_Countries).Include(c => c.States).Include(t => t.Judgment_Languages).Include(v => v.Catchword_Lv1).Include(w => w.Catchword_Lv2).Include(x => x.Catchword_Lv3).Include(y => y.Catchword_Lv4)
                         .ToList();
                 }
                 else
                     items = _context.LawReviews
-                        .Include(u => u.Court_Types).Include(r => r.Judge_Names).Include(s => s.Judgment_Countries).Include(t => t.Judgment_Languages).Include(v => v.Catchword_Lv1).Include(w => w.Catchword_Lv2).Include(x => x.Catchword_Lv3).Include(y => y.Catchword_Lv4).Include(z => z.States)
+                        .Include(u => u.Court_Types).Include(r => r.Judge_Names).Include(s => s.Judgment_Countries).Include(c => c.States).Include(t => t.Judgment_Languages).Include(v => v.Catchword_Lv1).Include(w => w.Catchword_Lv2).Include(x => x.Catchword_Lv3).Include(y => y.Catchword_Lv4)
                         .ToList();
 
                 items = DoSort(items, SortProperty, sortOrder);
@@ -970,9 +970,7 @@ namespace ELaw.Repositories
 
             public LawReview GetItem(int LAWREVIEW_ID)
             {
-                LawReview item = _context.LawReviews.Where(u => u.LAWREVIEW_ID == LAWREVIEW_ID).Where(r => r.LAWREVIEW_ID == LAWREVIEW_ID).Where(s => s.LAWREVIEW_ID == LAWREVIEW_ID).Where(t => t.LAWREVIEW_ID == LAWREVIEW_ID).Where(v => v.LAWREVIEW_ID == LAWREVIEW_ID).Where(w => w.LAWREVIEW_ID == LAWREVIEW_ID).Where(x => x.LAWREVIEW_ID == LAWREVIEW_ID).Where(y => y.LAWREVIEW_ID == LAWREVIEW_ID)
-                    .Include(u => u.Court_Types).Include(r => r.Judge_Names).Include(s => s.Judgment_Countries).Include(t => t.Judgment_Languages).Include(v => v.Catchword_Lv1).Include(w => w.Catchword_Lv2).Include(x => x.Catchword_Lv3).Include(y => y.Catchword_Lv4)
-                    .FirstOrDefault();
+                LawReview item = _context.LawReviews.Where(u => u.LAWREVIEW_ID == LAWREVIEW_ID).FirstOrDefault();
                 return item;
             }
             public bool IsItemExists(int LAWREVIEW_ID)

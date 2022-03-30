@@ -37,48 +37,39 @@ namespace ELaw.Models
         //Cascade|Dropdown
 
         [ForeignKey("COURT_TYPE")]
-        [Display(Name = "COURT_TYPE")]
         public int? COURT_TYPE { get; set; }
         public virtual COURT_TYPE Court_Types { get; set; }
 
         [ForeignKey("JUDGE_NAME")]
-        [Display(Name = "JUDGE_NAME")]
         public int? JUDGE_NAME { get; set; }
         public virtual JUDGE_NAME Judge_Names { get; set; }
 
         [ForeignKey("JUDGMENT_COUNTRY")]
-        [Display(Name = "JUDGMENT_COUNTRY")]
         public int? JUDGMENT_COUNTRY { get; set; }
         public virtual JUDGMENT_COUNTRY Judgment_Countries { get; set; }
 
         [ForeignKey("STATE")]
-        [Display(Name = "STATE")]
         public int? STATE { get; set; }
         public virtual STATE States { get; set; }
 
 
         [ForeignKey("JUDGMENT_LANGUAGE")]
-        [Display(Name = "JUDGMENT_LANGUAGE")]
         public int? JUDGMENT_LANGUAGE { get; set; }
         public virtual JUDGMENT_LANGUAGE Judgment_Languages { get; set; }
 
         [ForeignKey("CATCHWORD_LV1")]
-        [Display(Name = "CATCHWORD_LV1")]
         public int? CATCHWORD_LV1 { get; set; }
         public virtual CATCHWORD_LV1 Catchword_Lv1 { get; set; }
 
         [ForeignKey("CATCHWORD_LV2")]
-        [Display(Name = "CATCHWORD_LV2")]
         public int? CATCHWORD_LV2 { get; set; }
         public virtual CATCHWORD_LV2 Catchword_Lv2 { get; set; }
 
         [ForeignKey("CATCHWORD_LV3")]
-        [Display(Name = "CATCHWORD_LV3")]
         public int? CATCHWORD_LV3 { get; set; }
         public virtual CATCHWORD_LV3 Catchword_Lv3 { get; set; }
 
         [ForeignKey("CATCHWORD_LV4")]
-        [Display(Name = "CATCHWORD_LV4")]
         public int? CATCHWORD_LV4 { get; set; }
         public virtual CATCHWORD_LV4 Catchword_Lv4 { get; set; }
 

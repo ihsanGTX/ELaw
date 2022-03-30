@@ -100,16 +100,6 @@ namespace ELaw.Controllers
         //Document LawReview
         public IActionResult Index(string sortExpression = "", string SearchText = "", int pg = 1, int pageSize = 5)
         {
-            ViewBag.Court_Types = GetCourt_Types();
-            ViewBag.Judge_Names = GetJudge_Names();
-            ViewBag.Judgment_Countries = GetJudgment_Countries();
-            ViewBag.Judgment_Languages = GetJudgment_Languages();
-            ViewBag.States = GetStates();
-            ViewBag.Catchword_Lv1 = GetCatchword_Lv1();
-            ViewBag.Catchword_Lv2 = GetCatchword_Lv2();
-            ViewBag.Catchword_Lv3 = GetCatchword_Lv3();
-            ViewBag.Catchword_Lv4 = GetCatchword_Lv4();
-
             SortModel sortModel = new SortModel();
             sortModel.AddColumn("JUDGMENT_NAME");
             sortModel.AddColumn("JUDGMENT_NAME_VERSUS");
@@ -146,35 +136,35 @@ namespace ELaw.Controllers
 
             return View(LawReviews);
         }
-        [HttpGet]
-        public IActionResult SaveXml()
-        {
-            LawReview lawreview = new LawReview();
+        //[HttpGet]
+        //public IActionResult SaveXml()
+        //{
+        //    LawReview lawreview = new LawReview();
 
-            ViewBag.Court_Types = GetCourt_Types();
-            ViewBag.Judge_Names = GetJudge_Names();
-            ViewBag.Judgment_Countries = GetJudgment_Countries();
-            ViewBag.Judgment_Languages = GetJudgment_Languages();
-            ViewBag.States = GetStates();
-            ViewBag.Catchword_Lv1 = GetCatchword_Lv1();
-            ViewBag.Catchword_Lv2 = GetCatchword_Lv2();
-            ViewBag.Catchword_Lv3 = GetCatchword_Lv3();
-            ViewBag.Catchword_Lv4 = GetCatchword_Lv4();
+        //    ViewBag.Court_Types = GetCourt_Types();
+        //    ViewBag.Judge_Names = GetJudge_Names();
+        //    ViewBag.Judgment_Countries = GetJudgment_Countries();
+        //    ViewBag.Judgment_Languages = GetJudgment_Languages();
+        //    ViewBag.States = GetStates();
+        //    ViewBag.Catchword_Lv1 = GetCatchword_Lv1();
+        //    ViewBag.Catchword_Lv2 = GetCatchword_Lv2();
+        //    ViewBag.Catchword_Lv3 = GetCatchword_Lv3();
+        //    ViewBag.Catchword_Lv4 = GetCatchword_Lv4();
 
-            lawreview.ReferredCases.Add(new ReferredCase() { REFERRED_CASES_ID = 1 });
-            lawreview.ReferredLegislations.Add(new ReferredLegislation() { REFERRED_LEGISLATION_ID = 1 });
-            return View(lawreview);
-        }
+        //    lawreview.ReferredCases.Add(new ReferredCase() { REFERRED_CASES_ID = 1 });
+        //    lawreview.ReferredLegislations.Add(new ReferredLegislation() { REFERRED_LEGISLATION_ID = 1 });
+        //    return View(lawreview);
+        //}
 
-        [HttpPost]
-        public IActionResult SaveXml(LawReview lawreview)
-        {
-            lawreview.ReferredCases.RemoveAll(n => n.IsDeleted == true);
-            lawreview.ReferredLegislations.RemoveAll(n => n.IsDeleted == true);
-            lawreview = _lawReviewRepo.Create(lawreview);
-            _context.Add(lawreview);
-            return RedirectToAction("Index");
-        }
+        //[HttpPost]
+        //public IActionResult SaveXml(LawReview lawreview)
+        //{
+        //    lawreview.ReferredCases.RemoveAll(n => n.IsDeleted == true);
+        //    lawreview.ReferredLegislations.RemoveAll(n => n.IsDeleted == true);
+        //    lawreview = _lawReviewRepo.Create(lawreview);
+        //    _context.Add(lawreview);
+        //    return RedirectToAction("Index");
+        //}
         [HttpGet]
         public IActionResult Create()
         {
