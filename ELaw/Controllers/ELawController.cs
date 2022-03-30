@@ -316,7 +316,7 @@ namespace ELaw.Controllers
         private List<SelectListItem> GetCourt_Types()
         {
             var lstCourt_Types = new List<SelectListItem>();
-            PaginatedList<COURT_TYPE> Court_Types = _courtTypeRepo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
+            PaginatedList<Court_Type> Court_Types = _courtTypeRepo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
             lstCourt_Types = Court_Types.Select(ut => new SelectListItem()
             {
                 Value = ut.Id.ToString(),
@@ -337,7 +337,7 @@ namespace ELaw.Controllers
         private List<SelectListItem> GetJudge_Names()
         {
             var lstJudge_Names = new List<SelectListItem>();
-            PaginatedList<JUDGE_NAME> judge_names = _judgeNameRepo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
+            PaginatedList<Judge_Name> judge_names = _judgeNameRepo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
             lstJudge_Names = judge_names.Select(ut => new SelectListItem()
             {
                 Value = ut.Id.ToString(),
@@ -358,7 +358,7 @@ namespace ELaw.Controllers
         private List<SelectListItem> GetJudgment_Countries()
         {
             var lstJudgment_Countries = new List<SelectListItem>();
-            PaginatedList<JUDGMENT_COUNTRY> judgment_countries = _judgmentCountryRepo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
+            PaginatedList<Judgment_Country> judgment_countries = _judgmentCountryRepo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
             lstJudgment_Countries = judgment_countries.Select(ut => new SelectListItem()
             {
                 Value = ut.Id.ToString(),
@@ -384,7 +384,7 @@ namespace ELaw.Controllers
         private List<SelectListItem> GetStates()
         {
             var lstStates = new List<SelectListItem>();
-            PaginatedList<STATE> states = _stateRepo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
+            PaginatedList<State> states = _stateRepo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
             lstStates = states.Select(ut => new SelectListItem()
             {
                 Value = ut.Id.ToString(),
@@ -404,7 +404,7 @@ namespace ELaw.Controllers
         private List<SelectListItem> GetJudgment_Languages()
         {
             var lstJudgment_Languages = new List<SelectListItem>();
-            PaginatedList<JUDGMENT_LANGUAGE> judgment_languages = _judgmentLanguageRepo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
+            PaginatedList<Judgment_Language> judgment_languages = _judgmentLanguageRepo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
             lstJudgment_Languages = judgment_languages.Select(ut => new SelectListItem()
             {
                 Value = ut.Id.ToString(),
@@ -425,7 +425,7 @@ namespace ELaw.Controllers
         private List<SelectListItem> GetCatchword_Lv1()
         {
             var lstCatchword_Lv1 = new List<SelectListItem>();
-            PaginatedList<CATCHWORD_LV1> Catchword_Lv1 = _catchwordLv1Repo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
+            PaginatedList<Catchword_Lv1> Catchword_Lv1 = _catchwordLv1Repo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
             lstCatchword_Lv1 = Catchword_Lv1.Select(ut => new SelectListItem()
             {
                 Value = ut.Id.ToString(),
@@ -446,7 +446,7 @@ namespace ELaw.Controllers
         private List<SelectListItem> GetCatchword_Lv2()
         {
             var lstCatchword_Lv1 = new List<SelectListItem>();
-            PaginatedList<CATCHWORD_LV2> Catchword_Lv2 = _catchwordLv2Repo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
+            PaginatedList<Catchword_Lv2> Catchword_Lv2 = _catchwordLv2Repo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
             lstCatchword_Lv1 = Catchword_Lv2.Select(ut => new SelectListItem()
             {
                 Value = ut.Id.ToString(),
@@ -467,7 +467,7 @@ namespace ELaw.Controllers
         private List<SelectListItem> GetCatchword_Lv3()
         {
             var lstCatchword_Lv3 = new List<SelectListItem>();
-            PaginatedList<CATCHWORD_LV3> Catchword_Lv3 = _catchwordLv3Repo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
+            PaginatedList<Catchword_Lv3> Catchword_Lv3 = _catchwordLv3Repo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
             lstCatchword_Lv3 = Catchword_Lv3.Select(ut => new SelectListItem()
             {
                 Value = ut.Id.ToString(),
@@ -488,7 +488,7 @@ namespace ELaw.Controllers
         private List<SelectListItem> GetCatchword_Lv4()
         {
             var lstCatchword_Lv4 = new List<SelectListItem>();
-            PaginatedList<CATCHWORD_LV4> Catchword_Lv4 = _catchwordLv4Repo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
+            PaginatedList<Catchword_Lv4> Catchword_Lv4 = _catchwordLv4Repo.GetItems("Name", SortOrder.Ascending, "", 1, 1000);
             lstCatchword_Lv4 = Catchword_Lv4.Select(ut => new SelectListItem()
             {
                 Value = ut.Id.ToString(),
@@ -517,19 +517,19 @@ namespace ELaw.Controllers
         [HttpGet]
         public JsonResult GetCatchlv2(int Id)
         {
-            var Items = _context.Catchword_Lv2.Where(x => x.Catch1_Id == Id).ToList();
+            var Items = _context.Catchword_Lv2s.Where(x => x.Catch1_Id == Id).ToList();
             return Json(Items);
         }
         [HttpGet]
         public JsonResult GetCatchlv3(int Id)
         {
-            var Items = _context.Catchword_Lv3.Where(x => x.Catch2_Id == Id).ToList();
+            var Items = _context.Catchword_Lv3s.Where(x => x.Catch2_Id == Id).ToList();
             return Json(Items);
         }
         [HttpGet]
         public JsonResult GetCatchlv4(int Id)
         {
-            var Items = _context.Catchword_Lv4.Where(x => x.Catch3_Id == Id).ToList();
+            var Items = _context.Catchword_Lv4s.Where(x => x.Catch3_Id == Id).ToList();
             return Json(Items);
         }
     }

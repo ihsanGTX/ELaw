@@ -29,15 +29,15 @@ namespace ELaw.Data
         //public virtual DbSet<ThirdParty> ThirdParties { get; set; }
 
         //Cascade table
-        public virtual DbSet<CATCHWORD_LV1> Catchword_Lv1 { get; set; }
-        public virtual DbSet<CATCHWORD_LV2> Catchword_Lv2 { get; set; }
-        public virtual DbSet<CATCHWORD_LV3> Catchword_Lv3 { get; set; }
-        public virtual DbSet<CATCHWORD_LV4> Catchword_Lv4 { get; set; }
-        public virtual DbSet<COURT_TYPE> Court_Types { get; set; }
-        public virtual DbSet<JUDGE_NAME> Judge_Names { get; set; }
-        public virtual DbSet<JUDGMENT_COUNTRY> Judgment_Countries { get; set; }
-        public virtual DbSet<JUDGMENT_LANGUAGE> Judgment_Languages { get; set; }
-        public virtual DbSet<STATE> States { get; set; }
+        public virtual DbSet<Catchword_Lv1> Catchword_Lv1s { get; set; }
+        public virtual DbSet<Catchword_Lv2> Catchword_Lv2s { get; set; }
+        public virtual DbSet<Catchword_Lv3> Catchword_Lv3s { get; set; }
+        public virtual DbSet<Catchword_Lv4> Catchword_Lv4s { get; set; }
+        public virtual DbSet<Court_Type> Court_Types { get; set; }
+        public virtual DbSet<Judge_Name> Judge_Names { get; set; }
+        public virtual DbSet<Judgment_Country> Judgment_Countries { get; set; }
+        public virtual DbSet<Judgment_Language> Judgment_Languages { get; set; }
+        public virtual DbSet<State> States { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

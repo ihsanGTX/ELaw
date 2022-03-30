@@ -36,42 +36,42 @@ namespace ELaw.Models
 
         //Cascade|Dropdown
 
-        [ForeignKey("COURT_TYPE")]
+        [ForeignKey("Court_Types")]
         public int? COURT_TYPE { get; set; }
-        public virtual COURT_TYPE Court_Types { get; set; }
+        public virtual Court_Type Court_Types { get; set; }
 
-        [ForeignKey("JUDGE_NAME")]
+        [ForeignKey("Judge_Names")]
         public int? JUDGE_NAME { get; set; }
-        public virtual JUDGE_NAME Judge_Names { get; set; }
+        public virtual Judge_Name Judge_Names { get; set; }
 
-        [ForeignKey("JUDGMENT_COUNTRY")]
+        [ForeignKey("Judgment_Countries")]
         public int? JUDGMENT_COUNTRY { get; set; }
-        public virtual JUDGMENT_COUNTRY Judgment_Countries { get; set; }
+        public virtual Judgment_Country Judgment_Countries { get; set; }
 
-        [ForeignKey("STATE")]
+        [ForeignKey("States")]
         public int? STATE { get; set; }
-        public virtual STATE States { get; set; }
+        public virtual State States { get; set; }
 
 
-        [ForeignKey("JUDGMENT_LANGUAGE")]
+        [ForeignKey("Judgment_Languages")]
         public int? JUDGMENT_LANGUAGE { get; set; }
-        public virtual JUDGMENT_LANGUAGE Judgment_Languages { get; set; }
+        public virtual Judgment_Language Judgment_Languages { get; set; }
 
-        [ForeignKey("CATCHWORD_LV1")]
+        [ForeignKey("Catchword_Lv1s")]
         public int? CATCHWORD_LV1 { get; set; }
-        public virtual CATCHWORD_LV1 Catchword_Lv1 { get; set; }
+        public virtual Catchword_Lv1 Catchword_Lv1s { get; set; }
 
-        [ForeignKey("CATCHWORD_LV2")]
+        [ForeignKey("Catchword_Lv2s")]
         public int? CATCHWORD_LV2 { get; set; }
-        public virtual CATCHWORD_LV2 Catchword_Lv2 { get; set; }
+        public virtual Catchword_Lv2 Catchword_Lv2s { get; set; }
 
-        [ForeignKey("CATCHWORD_LV3")]
+        [ForeignKey("Catchword_Lv3s")]
         public int? CATCHWORD_LV3 { get; set; }
-        public virtual CATCHWORD_LV3 Catchword_Lv3 { get; set; }
+        public virtual Catchword_Lv3 Catchword_Lv3s { get; set; }
 
-        [ForeignKey("CATCHWORD_LV4")]
+        [ForeignKey("Catchword_Lv4s")]
         public int? CATCHWORD_LV4 { get; set; }
-        public virtual CATCHWORD_LV4 Catchword_Lv4 { get; set; }
+        public virtual Catchword_Lv4 Catchword_Lv4s { get; set; }
 
         //Foreign Table
         public virtual List<ReferredCase> ReferredCases { get; set; } = new List<ReferredCase>();

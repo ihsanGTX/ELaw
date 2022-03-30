@@ -21,14 +21,14 @@ namespace ELaw.Interfaces
         }
         public interface ICatchwordLv1
         {
-            PaginatedList<CATCHWORD_LV1> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5); //read all
-            CATCHWORD_LV1 GetCatchword_Lv1(int id); // read particular item
+            PaginatedList<Catchword_Lv1> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5); //read all
+            Catchword_Lv1 GetCatchword_Lv1(int id); // read particular item
 
-            CATCHWORD_LV1 Create(CATCHWORD_LV1 CATCHWORD_LV1);
+            Catchword_Lv1 Create(Catchword_Lv1 Catchword_Lv1);
 
-            CATCHWORD_LV1 Edit(CATCHWORD_LV1 CATCHWORD_LV1);
+            Catchword_Lv1 Edit(Catchword_Lv1 Catchword_Lv1);
 
-            CATCHWORD_LV1 Delete(CATCHWORD_LV1 CATCHWORD_LV1);
+            Catchword_Lv1 Delete(Catchword_Lv1 Catchword_Lv1);
 
             public bool IsItemExists(string name);
             public bool IsItemExists(string name, int Id);
@@ -37,14 +37,14 @@ namespace ELaw.Interfaces
         }
         public interface ICatchwordLv2
         {
-            PaginatedList<CATCHWORD_LV2> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5); //read all
-            CATCHWORD_LV2 GetCatchword_Lv2(int id); // read particular item
+            PaginatedList<Catchword_Lv2> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5); //read all
+            Catchword_Lv2 GetCatchword_Lv2(int id); // read particular item
 
-            CATCHWORD_LV2 Create(CATCHWORD_LV2 CATCHWORD_LV2);
+            Catchword_Lv2 Create(Catchword_Lv2 Catchword_Lv2);
 
-            CATCHWORD_LV2 Edit(CATCHWORD_LV2 CATCHWORD_LV2);
+            Catchword_Lv2 Edit(Catchword_Lv2 Catchword_Lv2);
 
-            CATCHWORD_LV2 Delete(CATCHWORD_LV2 CATCHWORD_LV2);
+            Catchword_Lv2 Delete(Catchword_Lv2 Catchword_Lv2);
 
             public bool IsItemExists(string name);
             public bool IsItemExists(string name, int Id);
@@ -53,14 +53,14 @@ namespace ELaw.Interfaces
         }
         public interface ICatchwordLv3
         {
-            PaginatedList<CATCHWORD_LV3> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5); //read all
-            CATCHWORD_LV3 GetCatchword_Lv3(int id); // read particular item
+            PaginatedList<Catchword_Lv3> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5); //read all
+            Catchword_Lv3 GetCatchword_Lv3(int id); // read particular item
 
-            CATCHWORD_LV3 Create(CATCHWORD_LV3 CATCHWORD_LV3);
+            Catchword_Lv3 Create(Catchword_Lv3 Catchword_Lv3);
 
-            CATCHWORD_LV3 Edit(CATCHWORD_LV3 CATCHWORD_LV3);
+            Catchword_Lv3 Edit(Catchword_Lv3 Catchword_Lv3);
 
-            CATCHWORD_LV3 Delete(CATCHWORD_LV3 CATCHWORD_LV3);
+            Catchword_Lv3 Delete(Catchword_Lv3 Catchword_Lv3);
 
             public bool IsItemExists(string name);
             public bool IsItemExists(string name, int Id);
@@ -69,14 +69,14 @@ namespace ELaw.Interfaces
         }
         public interface ICatchwordLv4
         {
-            PaginatedList<CATCHWORD_LV4> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5); //read all
-            CATCHWORD_LV4 GetCatchword_Lv4(int id); // read particular item
+            PaginatedList<Catchword_Lv4> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5); //read all
+            Catchword_Lv4 GetCatchword_Lv4(int id); // read particular item
 
-            CATCHWORD_LV4 Create(CATCHWORD_LV4 CATCHWORD_LV4);
+            Catchword_Lv4 Create(Catchword_Lv4 Catchword_Lv4);
 
-            CATCHWORD_LV4 Edit(CATCHWORD_LV4 CATCHWORD_LV4);
+            Catchword_Lv4 Edit(Catchword_Lv4 Catchword_Lv4);
 
-            CATCHWORD_LV4 Delete(CATCHWORD_LV4 CATCHWORD_LV4);
+            Catchword_Lv4 Delete(Catchword_Lv4 Catchword_Lv4);
 
             public bool IsItemExists(string name);
             public bool IsItemExists(string name, int Id);
@@ -85,14 +85,14 @@ namespace ELaw.Interfaces
         }
         public interface ICourtType
         {
-            PaginatedList<COURT_TYPE> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5); //read all
-            COURT_TYPE GetCourt_Types(int id); // read particular item
+            PaginatedList<Court_Type> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5); //read all
+            Court_Type GetCourt_Types(int id); // read particular item
 
-            COURT_TYPE Create(COURT_TYPE COURT_TYPE);
+            Court_Type Create(Court_Type Court_Type);
 
-            COURT_TYPE Edit(COURT_TYPE COURT_TYPE);
+            Court_Type Edit(Court_Type Court_Type);
 
-            COURT_TYPE Delete(COURT_TYPE COURT_TYPE);
+            Court_Type Delete(Court_Type Court_Type);
 
             public bool IsItemExists(string name);
             public bool IsItemExists(string name, int Id);
@@ -101,14 +101,14 @@ namespace ELaw.Interfaces
         }
         public interface IJudgeName
         {
-            PaginatedList<JUDGE_NAME> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5); //read all
-            JUDGE_NAME GetJudge_Names(int id); // read particular item
+            PaginatedList<Judge_Name> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5); //read all
+            Judge_Name GetJudge_Names(int id); // read particular item
 
-            JUDGE_NAME Create(JUDGE_NAME COURT_TYPE);
+            Judge_Name Create(Judge_Name Judge_Name);
 
-            JUDGE_NAME Edit(JUDGE_NAME COURT_TYPE);
+            Judge_Name Edit(Judge_Name Judge_Name);
 
-            JUDGE_NAME Delete(JUDGE_NAME COURT_TYPE);
+            Judge_Name Delete(Judge_Name Judge_Name);
 
             public bool IsItemExists(string name);
             public bool IsItemExists(string name, int Id);
@@ -117,14 +117,14 @@ namespace ELaw.Interfaces
         }
         public interface IJudgmentCountry
         {
-            PaginatedList<JUDGMENT_COUNTRY> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5); //read all
-            JUDGMENT_COUNTRY GetJudgment_Countries(int id); // read particular item
+            PaginatedList<Judgment_Country> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5); //read all
+            Judgment_Country GetJudgment_Countries(int id); // read particular item
 
-            JUDGMENT_COUNTRY Create(JUDGMENT_COUNTRY JUDGMENT_COUNTRY);
+            Judgment_Country Create(Judgment_Country Judgment_Country);
 
-            JUDGMENT_COUNTRY Edit(JUDGMENT_COUNTRY JUDGMENT_COUNTRY);
+            Judgment_Country Edit(Judgment_Country Judgment_Country);
 
-            JUDGMENT_COUNTRY Delete(JUDGMENT_COUNTRY JUDGMENT_COUNTRY);
+            Judgment_Country Delete(Judgment_Country Judgment_Country);
 
             public bool IsItemExists(string name);
             public bool IsItemExists(string name, int Id);
@@ -133,14 +133,14 @@ namespace ELaw.Interfaces
         }
         public interface IJudgmentLanguage
         {
-            PaginatedList<JUDGMENT_LANGUAGE> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5); //read all
-            JUDGMENT_LANGUAGE GetJudgment_Language(int id); // read particular item
+            PaginatedList<Judgment_Language> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5); //read all
+            Judgment_Language GetJudgment_Language(int id); // read particular item
 
-            JUDGMENT_LANGUAGE Create(JUDGMENT_LANGUAGE JUDGMENT_LANGUAGE);
+            Judgment_Language Create(Judgment_Language Judgment_Language);
 
-            JUDGMENT_LANGUAGE Edit(JUDGMENT_LANGUAGE JUDGMENT_LANGUAGE);
+            Judgment_Language Edit(Judgment_Language Judgment_Language);
 
-            JUDGMENT_LANGUAGE Delete(JUDGMENT_LANGUAGE JUDGMENT_LANGUAGE);
+            Judgment_Language Delete(Judgment_Language Judgment_Language);
 
             public bool IsItemExists(string name);
             public bool IsItemExists(string name, int Id);
@@ -149,14 +149,14 @@ namespace ELaw.Interfaces
         }
         public interface IState
         {
-            PaginatedList<STATE> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5); //read all
-            STATE GetStates(int id); // read particular item
+            PaginatedList<State> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5); //read all
+            State GetStates(int id); // read particular item
 
-            STATE Create(STATE STATE);
+            State Create(State State);
 
-            STATE Edit(STATE STATE);
+            State Edit(State State);
 
-            STATE Delete(STATE STATE);
+            State Delete(State State);
 
             public bool IsItemExists(string name);
             public bool IsItemExists(string name, int id);

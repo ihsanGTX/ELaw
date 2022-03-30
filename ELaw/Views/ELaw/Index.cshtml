@@ -2,7 +2,7 @@
 @model IEnumerable<ELaw.Models.LawReview>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Cases";
 
     SortModel sortModel = (SortModel)ViewData["sortModel"];
 
@@ -196,16 +196,16 @@
                     @Html.DisplayFor(modelItem => item.Judgment_Languages.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Catchword_Lv1.Name)
+                    @Html.DisplayFor(modelItem => item.Catchword_Lv1s.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Catchword_Lv2.Name)
+                    @Html.DisplayFor(modelItem => item.Catchword_Lv2s.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Catchword_Lv3.Name)
+                    @Html.DisplayFor(modelItem => item.Catchword_Lv3s.Name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Catchword_Lv4.Name)
+                    @Html.DisplayFor(modelItem => item.Catchword_Lv4s.Name)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.VERDICT)
@@ -244,9 +244,6 @@
     </div>
 </div>
 <br />
-<div>
-        <a asp-action="SaveDocument">XMLSerializer</a>
-</div>
 
 
 @section Scripts {

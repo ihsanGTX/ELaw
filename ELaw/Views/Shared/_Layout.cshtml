@@ -33,16 +33,24 @@
                             {
                               @if (SignInManager.IsSignedIn(User))
                              {
+                                 <a class="nav-link @menuTextColor" asp-area="" asp-controller="ELaw" asp-action="Index">Cases</a>
                                 <li class="dropdown nav-item pr-2">
                                     <a class="nav-link dropdown-toggle @menuTextColor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                                        Cases
+                                        Category
                                     </a>
                                       
                                     <ul class="dropdown-menu" style="background:linear-gradient(to right,#000000,#000000);">
                                         <li class="nav-item">
-                                            <a class="nav-link @menuTextColor" asp-area="" asp-controller="ELaw" asp-action="Index">Documents</a>
-                                            <a class="nav-link @menuTextColor" asp-area="" asp-controller="Cascade" asp-action="Index">Country</a>
-                                            <a class="nav-link @menuTextColor" asp-area="" asp-controller="Cascade" asp-action="StateIndex">State</a>
+                                            
+                                            <a class="nav-link @menuTextColor" asp-area="" asp-controller="Country" asp-action="Index">Country List</a>
+                                            <a class="nav-link @menuTextColor" asp-area="" asp-controller="State" asp-action="Index">State List</a>
+                                            <a class="nav-link @menuTextColor" asp-area="" asp-controller="CourtType" asp-action="Index">Court List</a>
+                                            <a class="nav-link @menuTextColor" asp-area="" asp-controller="JudgeName" asp-action="Index">Judge List</a>
+                                            <a class="nav-link @menuTextColor" asp-area="" asp-controller="Language" asp-action="Index">Language List</a>
+                                            <a class="nav-link @menuTextColor" asp-area="" asp-controller="CatchwordLv1" asp-action="Index">Catchword Lv1 List</a>
+                                            <a class="nav-link @menuTextColor" asp-area="" asp-controller="CatchwordLv2" asp-action="Index">Catchword Lv2 List</a>
+                                            <a class="nav-link @menuTextColor" asp-area="" asp-controller="CatchwordLv3" asp-action="Index">Catchword Lv3 List</a>
+                                            <a class="nav-link @menuTextColor" asp-area="" asp-controller="CatchwordLv4" asp-action="Index">Catchword Lv4 List</a>
                                         </li>
                                     </ul>
 

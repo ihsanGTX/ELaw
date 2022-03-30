@@ -112,7 +112,7 @@ cascadelist.cshtml data id
                         <div class="col-md-4">
                             <div class="form-group">
                                 <label asp-for="JUDGMENT_COUNTRY" class="control-label"></label>
-                                <select asp-for="JUDGMENT_COUNTRY" class="form-control" asp-items="ViewBag.Judgement_Countries" />
+                                <select asp-for="JUDGMENT_COUNTRY" class="form-control" asp-items="ViewBag.Judgment_Countries" />
                                 <span asp-validation-for="JUDGMENT_COUNTRY" class="text-danger"></span>
                             </div>
                         </div>

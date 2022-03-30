@@ -19,7 +19,7 @@ namespace ELaw.Migrations.EDb
                 .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("ELaw.Models.CATCHWORD_LV1", b =>
+            modelBuilder.Entity("ELaw.Models.Catchword_Lv1", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -31,10 +31,10 @@ namespace ELaw.Migrations.EDb
 
                     b.HasKey("Id");
 
-                    b.ToTable("Catchword_Lv1");
+                    b.ToTable("Catchword_Lv1s");
                 });
 
-            modelBuilder.Entity("ELaw.Models.CATCHWORD_LV2", b =>
+            modelBuilder.Entity("ELaw.Models.Catchword_Lv2", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -49,10 +49,12 @@ namespace ELaw.Migrations.EDb
 
                     b.HasKey("Id");
 
-                    b.ToTable("Catchword_Lv2");
+                    b.HasIndex("Catch1_Id");
+
+                    b.ToTable("Catchword_Lv2s");
                 });
 
-            modelBuilder.Entity("ELaw.Models.CATCHWORD_LV3", b =>
+            modelBuilder.Entity("ELaw.Models.Catchword_Lv3", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -67,10 +69,12 @@ namespace ELaw.Migrations.EDb
 
                     b.HasKey("Id");
 
-                    b.ToTable("Catchword_Lv3");
+                    b.HasIndex("Catch2_Id");
+
+                    b.ToTable("Catchword_Lv3s");
                 });
 
-            modelBuilder.Entity("ELaw.Models.CATCHWORD_LV4", b =>
+            modelBuilder.Entity("ELaw.Models.Catchword_Lv4", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -85,10 +89,12 @@ namespace ELaw.Migrations.EDb
 
                     b.HasKey("Id");
 
-                    b.ToTable("Catchword_Lv4");
+                    b.HasIndex("Catch3_Id");
+
+                    b.ToTable("Catchword_Lv4s");
                 });
 
-            modelBuilder.Entity("ELaw.Models.COURT_TYPE", b =>
+            modelBuilder.Entity("ELaw.Models.Court_Type", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -103,7 +109,7 @@ namespace ELaw.Migrations.EDb
                     b.ToTable("Court_Types");
                 });
 
-            modelBuilder.Entity("ELaw.Models.JUDGE_NAME", b =>
+            modelBuilder.Entity("ELaw.Models.Judge_Name", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -118,7 +124,7 @@ namespace ELaw.Migrations.EDb
                     b.ToTable("Judge_Names");
                 });
 
-            modelBuilder.Entity("ELaw.Models.JUDGMENT_COUNTRY", b =>
+            modelBuilder.Entity("ELaw.Models.Judgment_Country", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -133,7 +139,7 @@ namespace ELaw.Migrations.EDb
                     b.ToTable("Judgment_Countries");
                 });
 
-            modelBuilder.Entity("ELaw.Models.JUDGMENT_LANGUAGE", b =>
+            modelBuilder.Entity("ELaw.Models.Judgment_Language", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -168,21 +174,6 @@ namespace ELaw.Migrations.EDb
                         .HasColumnType("int");
 
                     b.Property<int?>("COURT_TYPE")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Catchword_Lv1Id")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Catchword_Lv2Id")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Catchword_Lv3Id")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Catchword_Lv4Id")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Court_TypesId")
                         .HasColumnType("int");
 
                     b.Property<string>("HEADNOTE")
@@ -222,19 +213,7 @@ namespace ELaw.Migrations.EDb
                         .HasMaxLength(150)
                         .HasColumnType("nvarchar(150)");
 
-                    b.Property<int?>("Judge_NamesId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Judgment_CountriesId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("Judgment_LanguagesId")
-                        .HasColumnType("int");
-
                     b.Property<int?>("STATE")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("StatesId")
                         .HasColumnType("int");
 
                     b.Property<string>("VERDICT")
@@ -242,23 +221,23 @@ namespace ELaw.Migrations.EDb
 
                     b.HasKey("LAWREVIEW_ID");
 
-                    b.HasIndex("Catchword_Lv1Id");
+                    b.HasIndex("CATCHWORD_LV1");
 
-                    b.HasIndex("Catchword_Lv2Id");
+                    b.HasIndex("CATCHWORD_LV2");
 
-                    b.HasIndex("Catchword_Lv3Id");
+                    b.HasIndex("CATCHWORD_LV3");
 
-                    b.HasIndex("Catchword_Lv4Id");
+                    b.HasIndex("CATCHWORD_LV4");
 
-                    b.HasIndex("Court_TypesId");
+                    b.HasIndex("COURT_TYPE");
 
-                    b.HasIndex("Judge_NamesId");
+                    b.HasIndex("JUDGE_NAME");
 
-                    b.HasIndex("Judgment_CountriesId");
+                    b.HasIndex("JUDGMENT_COUNTRY");
 
-                    b.HasIndex("Judgment_LanguagesId");
+                    b.HasIndex("JUDGMENT_LANGUAGE");
 
-                    b.HasIndex("StatesId");
+                    b.HasIndex("STATE");
 
                     b.ToTable("LawReviews");
                 });
@@ -305,7 +284,7 @@ namespace ELaw.Migrations.EDb
                     b.ToTable("ReferredLegislations");
                 });
 
-            modelBuilder.Entity("ELaw.Models.STATE", b =>
+            modelBuilder.Entity("ELaw.Models.State", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -320,54 +299,89 @@ namespace ELaw.Migrations.EDb
 
                     b.HasKey("Id");
 
+                    b.HasIndex("Judgment_Country_Id");
+
                     b.ToTable("States");
+                });
+
+            modelBuilder.Entity("ELaw.Models.Catchword_Lv2", b =>
+                {
+                    b.HasOne("ELaw.Models.Catchword_Lv1", "Catchword_Lv1s")
+                        .WithMany()
+                        .HasForeignKey("Catch1_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Catchword_Lv1s");
+                });
+
+            modelBuilder.Entity("ELaw.Models.Catchword_Lv3", b =>
+                {
+                    b.HasOne("ELaw.Models.Catchword_Lv2", "Catchword_Lv2s")
+                        .WithMany()
+                        .HasForeignKey("Catch2_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Catchword_Lv2s");
+                });
+
+            modelBuilder.Entity("ELaw.Models.Catchword_Lv4", b =>
+                {
+                    b.HasOne("ELaw.Models.Catchword_Lv3", "Catchword_Lv3s")
+                        .WithMany()
+                        .HasForeignKey("Catch3_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Catchword_Lv3s");
                 });
 
             modelBuilder.Entity("ELaw.Models.LawReview", b =>
                 {
-                    b.HasOne("ELaw.Models.CATCHWORD_LV1", "Catchword_Lv1")
+                    b.HasOne("ELaw.Models.Catchword_Lv1", "Catchword_Lv1s")
                         .WithMany()
-                        .HasForeignKey("Catchword_Lv1Id");
+                        .HasForeignKey("CATCHWORD_LV1");
 
-                    b.HasOne("ELaw.Models.CATCHWORD_LV2", "Catchword_Lv2")
+                    b.HasOne("ELaw.Models.Catchword_Lv2", "Catchword_Lv2s")
                         .WithMany()
-                        .HasForeignKey("Catchword_Lv2Id");
+                        .HasForeignKey("CATCHWORD_LV2");
 
-                    b.HasOne("ELaw.Models.CATCHWORD_LV3", "Catchword_Lv3")
+                    b.HasOne("ELaw.Models.Catchword_Lv3", "Catchword_Lv3s")
                         .WithMany()
-                        .HasForeignKey("Catchword_Lv3Id");
+                        .HasForeignKey("CATCHWORD_LV3");
 
-                    b.HasOne("ELaw.Models.CATCHWORD_LV4", "Catchword_Lv4")
+                    b.HasOne("ELaw.Models.Catchword_Lv4", "Catchword_Lv4s")
                         .WithMany()
-                        .HasForeignKey("Catchword_Lv4Id");
+                        .HasForeignKey("CATCHWORD_LV4");
 
-                    b.HasOne("ELaw.Models.COURT_TYPE", "Court_Types")
+                    b.HasOne("ELaw.Models.Court_Type", "Court_Types")
                         .WithMany()
-                        .HasForeignKey("Court_TypesId");
+                        .HasForeignKey("COURT_TYPE");
 
-                    b.HasOne("ELaw.Models.JUDGE_NAME", "Judge_Names")
+                    b.HasOne("ELaw.Models.Judge_Name", "Judge_Names")
                         .WithMany()
-                        .HasForeignKey("Judge_NamesId");
+                        .HasForeignKey("JUDGE_NAME");
 
-                    b.HasOne("ELaw.Models.JUDGMENT_COUNTRY", "Judgment_Countries")
+                    b.HasOne("ELaw.Models.Judgment_Country", "Judgment_Countries")
                         .WithMany()
-                        .HasForeignKey("Judgment_CountriesId");
+                        .HasForeignKey("JUDGMENT_COUNTRY");
 
-                    b.HasOne("ELaw.Models.JUDGMENT_LANGUAGE", "Judgment_Languages")
+                    b.HasOne("ELaw.Models.Judgment_Language", "Judgment_Languages")
                         .WithMany()
-                        .HasForeignKey("Judgment_LanguagesId");
+                        .HasForeignKey("JUDGMENT_LANGUAGE");
 
-                    b.HasOne("ELaw.Models.STATE", "States")
+                    b.HasOne("ELaw.Models.State", "States")
                         .WithMany()
-                        .HasForeignKey("StatesId");
+                        .HasForeignKey("STATE");
 
-                    b.Navigation("Catchword_Lv1");
+                    b.Navigation("Catchword_Lv1s");
 
-                    b.Navigation("Catchword_Lv2");
+                    b.Navigation("Catchword_Lv2s");
 
-                    b.Navigation("Catchword_Lv3");
+                    b.Navigation("Catchword_Lv3s");
 
-                    b.Navigation("Catchword_Lv4");
+                    b.Navigation("Catchword_Lv4s");
 
                     b.Navigation("Court_Types");
 
@@ -400,6 +414,17 @@ namespace ELaw.Migrations.EDb
                         .IsRequired();
 
                     b.Navigation("LawReview");
+                });
+
+            modelBuilder.Entity("ELaw.Models.State", b =>
+                {
+                    b.HasOne("ELaw.Models.Judgment_Country", "Judgment_Countries")
+                        .WithMany()
+                        .HasForeignKey("Judgment_Country_Id")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Judgment_Countries");
                 });
 
             modelBuilder.Entity("ELaw.Models.LawReview", b =>

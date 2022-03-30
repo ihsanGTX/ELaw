@@ -19,31 +19,31 @@ namespace ELaw.Repositories
             {
                 _context = context;
             }
-            public CATCHWORD_LV1 Create(CATCHWORD_LV1 CATCHWORD_LV1)
+            public Catchword_Lv1 Create(Catchword_Lv1 Catchword_Lv1)
             {
-                _context.Catchword_Lv1.Add(CATCHWORD_LV1);
+                _context.Catchword_Lv1s.Add(Catchword_Lv1);
                 _context.SaveChanges();
-                return CATCHWORD_LV1;
+                return Catchword_Lv1;
             }
 
-            public CATCHWORD_LV1 Delete(CATCHWORD_LV1 CATCHWORD_LV1)
+            public Catchword_Lv1 Delete(Catchword_Lv1 Catchword_Lv1)
             {
-                _context.Catchword_Lv1.Attach(CATCHWORD_LV1);
-                _context.Entry(CATCHWORD_LV1).State = EntityState.Deleted;
+                _context.Catchword_Lv1s.Attach(Catchword_Lv1);
+                _context.Entry(Catchword_Lv1).State = EntityState.Deleted;
                 _context.SaveChanges();
-                return CATCHWORD_LV1;
+                return Catchword_Lv1;
             }
 
-            public CATCHWORD_LV1 Edit(CATCHWORD_LV1 CATCHWORD_LV1)
+            public Catchword_Lv1 Edit(Catchword_Lv1 Catchword_Lv1)
             {
-                _context.Catchword_Lv1.Attach(CATCHWORD_LV1);
-                _context.Entry(CATCHWORD_LV1).State = EntityState.Modified;
+                _context.Catchword_Lv1s.Attach(Catchword_Lv1);
+                _context.Entry(Catchword_Lv1).State = EntityState.Modified;
                 _context.SaveChanges();
-                return CATCHWORD_LV1;
+                return Catchword_Lv1;
             }
 
 
-            private List<CATCHWORD_LV1> DoSort(List<CATCHWORD_LV1> items, string SortProperty, SortOrder sortOrder)
+            private List<Catchword_Lv1> DoSort(List<Catchword_Lv1> items, string SortProperty, SortOrder sortOrder)
             {
 
                 if (SortProperty.ToLower() == "name")
@@ -57,33 +57,33 @@ namespace ELaw.Repositories
                 return items;
             }
 
-            public PaginatedList<CATCHWORD_LV1> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
+            public PaginatedList<Catchword_Lv1> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
             {
-                List<CATCHWORD_LV1> items;
+                List<Catchword_Lv1> items;
 
                 if (SearchText != "" && SearchText != null)
                 {
-                    items = _context.Catchword_Lv1.Where(n => n.Name.Contains(SearchText))
+                    items = _context.Catchword_Lv1s.Where(n => n.Name.Contains(SearchText))
                         .ToList();
                 }
                 else
-                    items = _context.Catchword_Lv1.ToList();
+                    items = _context.Catchword_Lv1s.ToList();
 
                 items = DoSort(items, SortProperty, sortOrder);
 
-                PaginatedList<CATCHWORD_LV1> retItems = new PaginatedList<CATCHWORD_LV1>(items, pageIndex, pageSize);
+                PaginatedList<Catchword_Lv1> retItems = new PaginatedList<Catchword_Lv1>(items, pageIndex, pageSize);
 
                 return retItems;
             }
 
-            public CATCHWORD_LV1 GetCatchword_Lv1(int id)
+            public Catchword_Lv1 GetCatchword_Lv1(int id)
             {
-                CATCHWORD_LV1 item = _context.Catchword_Lv1.Where(u => u.Id == id).FirstOrDefault();
+                Catchword_Lv1 item = _context.Catchword_Lv1s.Where(u => u.Id == id).FirstOrDefault();
                 return item;
             }
             public bool IsItemExists(string name)
             {
-                int ct = _context.Catchword_Lv1.Where(n => n.Name.ToLower() == name.ToLower()).Count();
+                int ct = _context.Catchword_Lv1s.Where(n => n.Name.ToLower() == name.ToLower()).Count();
                 if (ct > 0)
                     return true;
                 else
@@ -92,7 +92,7 @@ namespace ELaw.Repositories
 
             public bool IsItemExists(string name, int Id)
             {
-                int ct = _context.Catchword_Lv1.Where(n => n.Name.ToLower() == name.ToLower() && n.Id != Id).Count();
+                int ct = _context.Catchword_Lv1s.Where(n => n.Name.ToLower() == name.ToLower() && n.Id != Id).Count();
                 if (ct > 0)
                     return true;
                 else
@@ -106,31 +106,31 @@ namespace ELaw.Repositories
             {
                 _context = context;
             }
-            public CATCHWORD_LV2 Create(CATCHWORD_LV2 CATCHWORD_LV2)
+            public Catchword_Lv2 Create(Catchword_Lv2 Catchword_Lv2)
             {
-                _context.Catchword_Lv2.Add(CATCHWORD_LV2);
+                _context.Catchword_Lv2s.Add(Catchword_Lv2);
                 _context.SaveChanges();
-                return CATCHWORD_LV2;
+                return Catchword_Lv2;
             }
 
-            public CATCHWORD_LV2 Delete(CATCHWORD_LV2 CATCHWORD_LV2)
+            public Catchword_Lv2 Delete(Catchword_Lv2 Catchword_Lv2)
             {
-                _context.Catchword_Lv2.Attach(CATCHWORD_LV2);
-                _context.Entry(CATCHWORD_LV2).State = EntityState.Deleted;
+                _context.Catchword_Lv2s.Attach(Catchword_Lv2);
+                _context.Entry(Catchword_Lv2).State = EntityState.Deleted;
                 _context.SaveChanges();
-                return CATCHWORD_LV2;
+                return Catchword_Lv2;
             }
 
-            public CATCHWORD_LV2 Edit(CATCHWORD_LV2 CATCHWORD_LV2)
+            public Catchword_Lv2 Edit(Catchword_Lv2 Catchword_Lv2)
             {
-                _context.Catchword_Lv2.Attach(CATCHWORD_LV2);
-                _context.Entry(CATCHWORD_LV2).State = EntityState.Modified;
+                _context.Catchword_Lv2s.Attach(Catchword_Lv2);
+                _context.Entry(Catchword_Lv2).State = EntityState.Modified;
                 _context.SaveChanges();
-                return CATCHWORD_LV2;
+                return Catchword_Lv2;
             }
 
 
-            private List<CATCHWORD_LV2> DoSort(List<CATCHWORD_LV2> items, string SortProperty, SortOrder sortOrder)
+            private List<Catchword_Lv2> DoSort(List<Catchword_Lv2> items, string SortProperty, SortOrder sortOrder)
             {
 
                 if (SortProperty.ToLower() == "name")
@@ -144,33 +144,34 @@ namespace ELaw.Repositories
                 return items;
             }
 
-            public PaginatedList<CATCHWORD_LV2> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
+            public PaginatedList<Catchword_Lv2> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
             {
-                List<CATCHWORD_LV2> items;
+                List<Catchword_Lv2> items;
 
                 if (SearchText != "" && SearchText != null)
                 {
-                    items = _context.Catchword_Lv2.Where(n => n.Name.Contains(SearchText))
+                    items = _context.Catchword_Lv2s.Where(n => n.Name.Contains(SearchText))
+                        .Include(u => u.Catchword_Lv1s)
                         .ToList();
                 }
                 else
-                    items = _context.Catchword_Lv2.ToList();
+                    items = _context.Catchword_Lv2s.Include(u => u.Catchword_Lv1s).ToList();
 
                 items = DoSort(items, SortProperty, sortOrder);
 
-                PaginatedList<CATCHWORD_LV2> retItems = new PaginatedList<CATCHWORD_LV2>(items, pageIndex, pageSize);
+                PaginatedList<Catchword_Lv2> retItems = new PaginatedList<Catchword_Lv2>(items, pageIndex, pageSize);
 
                 return retItems;
             }
 
-            public CATCHWORD_LV2 GetCatchword_Lv2(int id)
+            public Catchword_Lv2 GetCatchword_Lv2(int id)
             {
-                CATCHWORD_LV2 item = _context.Catchword_Lv2.Where(u => u.Id == id).FirstOrDefault();
+                Catchword_Lv2 item = _context.Catchword_Lv2s.Where(u => u.Id == id).FirstOrDefault();
                 return item;
             }
             public bool IsItemExists(string name)
             {
-                int ct = _context.Catchword_Lv2.Where(n => n.Name.ToLower() == name.ToLower()).Count();
+                int ct = _context.Catchword_Lv2s.Where(n => n.Name.ToLower() == name.ToLower()).Count();
                 if (ct > 0)
                     return true;
                 else
@@ -179,7 +180,7 @@ namespace ELaw.Repositories
 
             public bool IsItemExists(string name, int Id)
             {
-                int ct = _context.Catchword_Lv2.Where(n => n.Name.ToLower() == name.ToLower() && n.Id != Id).Count();
+                int ct = _context.Catchword_Lv2s.Where(n => n.Name.ToLower() == name.ToLower() && n.Id != Id).Count();
                 if (ct > 0)
                     return true;
                 else
@@ -193,31 +194,31 @@ namespace ELaw.Repositories
             {
                 _context = context;
             }
-            public CATCHWORD_LV3 Create(CATCHWORD_LV3 CATCHWORD_LV3)
+            public Catchword_Lv3 Create(Catchword_Lv3 Catchword_Lv3)
             {
-                _context.Catchword_Lv3.Add(CATCHWORD_LV3);
+                _context.Catchword_Lv3s.Add(Catchword_Lv3);
                 _context.SaveChanges();
-                return CATCHWORD_LV3;
+                return Catchword_Lv3;
             }
 
-            public CATCHWORD_LV3 Delete(CATCHWORD_LV3 CATCHWORD_LV3)
+            public Catchword_Lv3 Delete(Catchword_Lv3 Catchword_Lv3)
             {
-                _context.Catchword_Lv3.Attach(CATCHWORD_LV3);
-                _context.Entry(CATCHWORD_LV3).State = EntityState.Deleted;
+                _context.Catchword_Lv3s.Attach(Catchword_Lv3);
+                _context.Entry(Catchword_Lv3).State = EntityState.Deleted;
                 _context.SaveChanges();
-                return CATCHWORD_LV3;
+                return Catchword_Lv3;
             }
 
-            public CATCHWORD_LV3 Edit(CATCHWORD_LV3 CATCHWORD_LV3)
+            public Catchword_Lv3 Edit(Catchword_Lv3 Catchword_Lv3)
             {
-                _context.Catchword_Lv3.Attach(CATCHWORD_LV3);
-                _context.Entry(CATCHWORD_LV3).State = EntityState.Modified;
+                _context.Catchword_Lv3s.Attach(Catchword_Lv3);
+                _context.Entry(Catchword_Lv3).State = EntityState.Modified;
                 _context.SaveChanges();
-                return CATCHWORD_LV3;
+                return Catchword_Lv3;
             }
 
 
-            private List<CATCHWORD_LV3> DoSort(List<CATCHWORD_LV3> items, string SortProperty, SortOrder sortOrder)
+            private List<Catchword_Lv3> DoSort(List<Catchword_Lv3> items, string SortProperty, SortOrder sortOrder)
             {
 
                 if (SortProperty.ToLower() == "name")
@@ -231,33 +232,34 @@ namespace ELaw.Repositories
                 return items;
             }
 
-            public PaginatedList<CATCHWORD_LV3> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
+            public PaginatedList<Catchword_Lv3> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
             {
-                List<CATCHWORD_LV3> items;
+                List<Catchword_Lv3> items;
 
                 if (SearchText != "" && SearchText != null)
                 {
-                    items = _context.Catchword_Lv3.Where(n => n.Name.Contains(SearchText))
+                    items = _context.Catchword_Lv3s.Where(n => n.Name.Contains(SearchText))
+                        .Include(u => u.Catchword_Lv2s)
                         .ToList();
                 }
                 else
-                    items = _context.Catchword_Lv3.ToList();
+                    items = _context.Catchword_Lv3s.Include(u => u.Catchword_Lv2s).ToList();
 
                 items = DoSort(items, SortProperty, sortOrder);
 
-                PaginatedList<CATCHWORD_LV3> retItems = new PaginatedList<CATCHWORD_LV3>(items, pageIndex, pageSize);
+                PaginatedList<Catchword_Lv3> retItems = new PaginatedList<Catchword_Lv3>(items, pageIndex, pageSize);
 
                 return retItems;
             }
 
-            public CATCHWORD_LV3 GetCatchword_Lv3(int id)
+            public Catchword_Lv3 GetCatchword_Lv3(int id)
             {
-                CATCHWORD_LV3 item = _context.Catchword_Lv3.Where(u => u.Id == id).FirstOrDefault();
+                Catchword_Lv3 item = _context.Catchword_Lv3s.Where(u => u.Id == id).FirstOrDefault();
                 return item;
             }
             public bool IsItemExists(string name)
             {
-                int ct = _context.Catchword_Lv3.Where(n => n.Name.ToLower() == name.ToLower()).Count();
+                int ct = _context.Catchword_Lv3s.Where(n => n.Name.ToLower() == name.ToLower()).Count();
                 if (ct > 0)
                     return true;
                 else
@@ -266,7 +268,7 @@ namespace ELaw.Repositories
 
             public bool IsItemExists(string name, int Id)
             {
-                int ct = _context.Catchword_Lv3.Where(n => n.Name.ToLower() == name.ToLower() && n.Id != Id).Count();
+                int ct = _context.Catchword_Lv3s.Where(n => n.Name.ToLower() == name.ToLower() && n.Id != Id).Count();
                 if (ct > 0)
                     return true;
                 else
@@ -280,31 +282,31 @@ namespace ELaw.Repositories
             {
                 _context = context;
             }
-            public CATCHWORD_LV4 Create(CATCHWORD_LV4 CATCHWORD_LV4)
+            public Catchword_Lv4 Create(Catchword_Lv4 Catchword_Lv4)
             {
-                _context.Catchword_Lv4.Add(CATCHWORD_LV4);
+                _context.Catchword_Lv4s.Add(Catchword_Lv4);
                 _context.SaveChanges();
-                return CATCHWORD_LV4;
+                return Catchword_Lv4;
             }
 
-            public CATCHWORD_LV4 Delete(CATCHWORD_LV4 CATCHWORD_LV4)
+            public Catchword_Lv4 Delete(Catchword_Lv4 Catchword_Lv4)
             {
-                _context.Catchword_Lv4.Attach(CATCHWORD_LV4);
-                _context.Entry(CATCHWORD_LV4).State = EntityState.Deleted;
+                _context.Catchword_Lv4s.Attach(Catchword_Lv4);
+                _context.Entry(Catchword_Lv4).State = EntityState.Deleted;
                 _context.SaveChanges();
-                return CATCHWORD_LV4;
+                return Catchword_Lv4;
             }
 
-            public CATCHWORD_LV4 Edit(CATCHWORD_LV4 CATCHWORD_LV4)
+            public Catchword_Lv4 Edit(Catchword_Lv4 Catchword_Lv4)
             {
-                _context.Catchword_Lv4.Attach(CATCHWORD_LV4);
-                _context.Entry(CATCHWORD_LV4).State = EntityState.Modified;
+                _context.Catchword_Lv4s.Attach(Catchword_Lv4);
+                _context.Entry(Catchword_Lv4).State = EntityState.Modified;
                 _context.SaveChanges();
-                return CATCHWORD_LV4;
+                return Catchword_Lv4;
             }
 
 
-            private List<CATCHWORD_LV4> DoSort(List<CATCHWORD_LV4> items, string SortProperty, SortOrder sortOrder)
+            private List<Catchword_Lv4> DoSort(List<Catchword_Lv4> items, string SortProperty, SortOrder sortOrder)
             {
 
                 if (SortProperty.ToLower() == "name")
@@ -318,33 +320,34 @@ namespace ELaw.Repositories
                 return items;
             }
 
-            public PaginatedList<CATCHWORD_LV4> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
+            public PaginatedList<Catchword_Lv4> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
             {
-                List<CATCHWORD_LV4> items;
+                List<Catchword_Lv4> items;
 
                 if (SearchText != "" && SearchText != null)
                 {
-                    items = _context.Catchword_Lv4.Where(n => n.Name.Contains(SearchText))
+                    items = _context.Catchword_Lv4s.Where(n => n.Name.Contains(SearchText))
+                        .Include(u => u.Catchword_Lv3s)
                         .ToList();
                 }
                 else
-                    items = _context.Catchword_Lv4.ToList();
+                    items = _context.Catchword_Lv4s.Include(u => u.Catchword_Lv3s).ToList();
 
                 items = DoSort(items, SortProperty, sortOrder);
 
-                PaginatedList<CATCHWORD_LV4> retItems = new PaginatedList<CATCHWORD_LV4>(items, pageIndex, pageSize);
+                PaginatedList<Catchword_Lv4> retItems = new PaginatedList<Catchword_Lv4>(items, pageIndex, pageSize);
 
                 return retItems;
             }
 
-            public CATCHWORD_LV4 GetCatchword_Lv4(int id)
+            public Catchword_Lv4 GetCatchword_Lv4(int id)
             {
-                CATCHWORD_LV4 item = _context.Catchword_Lv4.Where(u => u.Id == id).FirstOrDefault();
+                Catchword_Lv4 item = _context.Catchword_Lv4s.Where(u => u.Id == id).FirstOrDefault();
                 return item;
             }
             public bool IsItemExists(string name)
             {
-                int ct = _context.Catchword_Lv4.Where(n => n.Name.ToLower() == name.ToLower()).Count();
+                int ct = _context.Catchword_Lv4s.Where(n => n.Name.ToLower() == name.ToLower()).Count();
                 if (ct > 0)
                     return true;
                 else
@@ -353,7 +356,7 @@ namespace ELaw.Repositories
 
             public bool IsItemExists(string name, int Id)
             {
-                int ct = _context.Catchword_Lv4.Where(n => n.Name.ToLower() == name.ToLower() && n.Id != Id).Count();
+                int ct = _context.Catchword_Lv4s.Where(n => n.Name.ToLower() == name.ToLower() && n.Id != Id).Count();
                 if (ct > 0)
                     return true;
                 else
@@ -367,31 +370,31 @@ namespace ELaw.Repositories
             {
                 _context = context;
             }
-            public COURT_TYPE Create(COURT_TYPE COURT_TYPE)
+            public Court_Type Create(Court_Type Court_Type)
             {
-                _context.Court_Types.Add(COURT_TYPE);
+                _context.Court_Types.Add(Court_Type);
                 _context.SaveChanges();
-                return COURT_TYPE;
+                return Court_Type;
             }
 
-            public COURT_TYPE Delete(COURT_TYPE COURT_TYPE)
+            public Court_Type Delete(Court_Type Court_Type)
             {
-                _context.Court_Types.Attach(COURT_TYPE);
-                _context.Entry(COURT_TYPE).State = EntityState.Deleted;
+                _context.Court_Types.Attach(Court_Type);
+                _context.Entry(Court_Type).State = EntityState.Deleted;
                 _context.SaveChanges();
-                return COURT_TYPE;
+                return Court_Type;
             }
 
-            public COURT_TYPE Edit(COURT_TYPE COURT_TYPE)
+            public Court_Type Edit(Court_Type Court_Type)
             {
-                _context.Court_Types.Attach(COURT_TYPE);
-                _context.Entry(COURT_TYPE).State = EntityState.Modified;
+                _context.Court_Types.Attach(Court_Type);
+                _context.Entry(Court_Type).State = EntityState.Modified;
                 _context.SaveChanges();
-                return COURT_TYPE;
+                return Court_Type;
             }
 
 
-            private List<COURT_TYPE> DoSort(List<COURT_TYPE> items, string SortProperty, SortOrder sortOrder)
+            private List<Court_Type> DoSort(List<Court_Type> items, string SortProperty, SortOrder sortOrder)
             {
 
                 if (SortProperty.ToLower() == "name")
@@ -405,9 +408,9 @@ namespace ELaw.Repositories
                 return items;
             }
 
-            public PaginatedList<COURT_TYPE> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
+            public PaginatedList<Court_Type> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
             {
-                List<COURT_TYPE> items;
+                List<Court_Type> items;
 
                 if (SearchText != "" && SearchText != null)
                 {
@@ -419,14 +422,14 @@ namespace ELaw.Repositories
 
                 items = DoSort(items, SortProperty, sortOrder);
 
-                PaginatedList<COURT_TYPE> retItems = new PaginatedList<COURT_TYPE>(items, pageIndex, pageSize);
+                PaginatedList<Court_Type> retItems = new PaginatedList<Court_Type>(items, pageIndex, pageSize);
 
                 return retItems;
             }
 
-            public COURT_TYPE GetCourt_Types(int id)
+            public Court_Type GetCourt_Types(int id)
             {
-                COURT_TYPE item = _context.Court_Types.Where(u => u.Id == id).FirstOrDefault();
+                Court_Type item = _context.Court_Types.Where(u => u.Id == id).FirstOrDefault();
                 return item;
             }
             public bool IsItemExists(string name)
@@ -454,31 +457,31 @@ namespace ELaw.Repositories
             {
                 _context = context;
             }
-            public JUDGE_NAME Create(JUDGE_NAME JUDGE_NAME)
+            public Judge_Name Create(Judge_Name Judge_Name)
             {
-                _context.Judge_Names.Add(JUDGE_NAME);
+                _context.Judge_Names.Add(Judge_Name);
                 _context.SaveChanges();
-                return JUDGE_NAME;
+                return Judge_Name;
             }
 
-            public JUDGE_NAME Delete(JUDGE_NAME JUDGE_NAME)
+            public Judge_Name Delete(Judge_Name Judge_Name)
             {
-                _context.Judge_Names.Attach(JUDGE_NAME);
-                _context.Entry(JUDGE_NAME).State = EntityState.Deleted;
+                _context.Judge_Names.Attach(Judge_Name);
+                _context.Entry(Judge_Name).State = EntityState.Deleted;
                 _context.SaveChanges();
-                return JUDGE_NAME;
+                return Judge_Name;
             }
 
-            public JUDGE_NAME Edit(JUDGE_NAME JUDGE_NAME)
+            public Judge_Name Edit(Judge_Name Judge_Name)
             {
-                _context.Judge_Names.Attach(JUDGE_NAME);
-                _context.Entry(JUDGE_NAME).State = EntityState.Modified;
+                _context.Judge_Names.Attach(Judge_Name);
+                _context.Entry(Judge_Name).State = EntityState.Modified;
                 _context.SaveChanges();
-                return JUDGE_NAME;
+                return Judge_Name;
             }
 
 
-            private List<JUDGE_NAME> DoSort(List<JUDGE_NAME> items, string SortProperty, SortOrder sortOrder)
+            private List<Judge_Name> DoSort(List<Judge_Name> items, string SortProperty, SortOrder sortOrder)
             {
 
                 if (SortProperty.ToLower() == "name")
@@ -492,9 +495,9 @@ namespace ELaw.Repositories
                 return items;
             }
 
-            public PaginatedList<JUDGE_NAME> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
+            public PaginatedList<Judge_Name> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
             {
-                List<JUDGE_NAME> items;
+                List<Judge_Name> items;
 
                 if (SearchText != "" && SearchText != null)
                 {
@@ -506,14 +509,14 @@ namespace ELaw.Repositories
 
                 items = DoSort(items, SortProperty, sortOrder);
 
-                PaginatedList<JUDGE_NAME> retItems = new PaginatedList<JUDGE_NAME>(items, pageIndex, pageSize);
+                PaginatedList<Judge_Name> retItems = new PaginatedList<Judge_Name>(items, pageIndex, pageSize);
 
                 return retItems;
             }
 
-            public JUDGE_NAME GetJudge_Names(int id)
+            public Judge_Name GetJudge_Names(int id)
             {
-                JUDGE_NAME item = _context.Judge_Names.Where(u => u.Id == id).FirstOrDefault();
+                Judge_Name item = _context.Judge_Names.Where(u => u.Id == id).FirstOrDefault();
                 return item;
             }
             public bool IsItemExists(string name)
@@ -541,31 +544,31 @@ namespace ELaw.Repositories
             {
                 _context = context;
             }
-            public JUDGMENT_COUNTRY Create(JUDGMENT_COUNTRY JUDGMENT_COUNTRY)
+            public Judgment_Country Create(Judgment_Country Judgment_Country)
             {
-                _context.Judgment_Countries.Add(JUDGMENT_COUNTRY);
+                _context.Judgment_Countries.Add(Judgment_Country);
                 _context.SaveChanges();
-                return JUDGMENT_COUNTRY;
+                return Judgment_Country;
             }
 
-            public JUDGMENT_COUNTRY Delete(JUDGMENT_COUNTRY JUDGMENT_COUNTRY)
+            public Judgment_Country Delete(Judgment_Country Judgment_Country)
             {
-                _context.Judgment_Countries.Attach(JUDGMENT_COUNTRY);
-                _context.Entry(JUDGMENT_COUNTRY).State = EntityState.Deleted;
+                _context.Judgment_Countries.Attach(Judgment_Country);
+                _context.Entry(Judgment_Country).State = EntityState.Deleted;
                 _context.SaveChanges();
-                return JUDGMENT_COUNTRY;
+                return Judgment_Country;
             }
 
-            public JUDGMENT_COUNTRY Edit(JUDGMENT_COUNTRY JUDGMENT_COUNTRY)
+            public Judgment_Country Edit(Judgment_Country Judgment_Country)
             {
-                _context.Judgment_Countries.Attach(JUDGMENT_COUNTRY);
-                _context.Entry(JUDGMENT_COUNTRY).State = EntityState.Modified;
+                _context.Judgment_Countries.Attach(Judgment_Country);
+                _context.Entry(Judgment_Country).State = EntityState.Modified;
                 _context.SaveChanges();
-                return JUDGMENT_COUNTRY;
+                return Judgment_Country;
             }
 
 
-            private List<JUDGMENT_COUNTRY> DoSort(List<JUDGMENT_COUNTRY> items, string SortProperty, SortOrder sortOrder)
+            private List<Judgment_Country> DoSort(List<Judgment_Country> items, string SortProperty, SortOrder sortOrder)
             {
 
                 if (SortProperty.ToLower() == "name")
@@ -579,9 +582,9 @@ namespace ELaw.Repositories
                 return items;
             }
 
-            public PaginatedList<JUDGMENT_COUNTRY> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
+            public PaginatedList<Judgment_Country> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
             {
-                List<JUDGMENT_COUNTRY> items;
+                List<Judgment_Country> items;
 
                 if (SearchText != "" && SearchText != null)
                 {
@@ -593,14 +596,14 @@ namespace ELaw.Repositories
 
                 items = DoSort(items, SortProperty, sortOrder);
 
-                PaginatedList<JUDGMENT_COUNTRY> retItems = new PaginatedList<JUDGMENT_COUNTRY>(items, pageIndex, pageSize);
+                PaginatedList<Judgment_Country> retItems = new PaginatedList<Judgment_Country>(items, pageIndex, pageSize);
 
                 return retItems;
             }
 
-            public JUDGMENT_COUNTRY GetJudgment_Countries(int id)
+            public Judgment_Country GetJudgment_Countries(int id)
             {
-                JUDGMENT_COUNTRY item = _context.Judgment_Countries.Where(u => u.Id == id).FirstOrDefault();
+                Judgment_Country item = _context.Judgment_Countries.Where(u => u.Id == id).FirstOrDefault();
                 return item;
             }
             public bool IsItemExists(string name)
@@ -628,31 +631,31 @@ namespace ELaw.Repositories
             {
                 _context = context;
             }
-            public STATE Create(STATE STATE)
+            public State Create(State State)
             {
-                _context.States.Add(STATE);
+                _context.States.Add(State);
                 _context.SaveChanges();
-                return STATE;
+                return State;
             }
 
-            public STATE Delete(STATE STATE)
+            public State Delete(State State)
             {
-                _context.States.Attach(STATE);
-                _context.Entry(STATE).State = EntityState.Deleted;
+                _context.States.Attach(State);
+                _context.Entry(State).State = EntityState.Deleted;
                 _context.SaveChanges();
-                return STATE;
+                return State;
             }
 
-            public STATE Edit(STATE STATE)
+            public State Edit(State State)
             {
-                _context.States.Attach(STATE);
-                _context.Entry(STATE).State = EntityState.Modified;
+                _context.States.Attach(State);
+                _context.Entry(State).State = EntityState.Modified;
                 _context.SaveChanges();
-                return STATE;
+                return State;
             }
 
 
-            private List<STATE> DoSort(List<STATE> items, string SortProperty, SortOrder sortOrder)
+            private List<State> DoSort(List<State> items, string SortProperty, SortOrder sortOrder)
             {
 
                 if (SortProperty.ToLower() == "name")
@@ -666,28 +669,29 @@ namespace ELaw.Repositories
                 return items;
             }
 
-            public PaginatedList<STATE> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
+            public PaginatedList<State> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
             {
-                List<STATE> items;
+                List<State> items;
 
                 if (SearchText != "" && SearchText != null)
                 {
                     items = _context.States.Where(n => n.Name.Contains(SearchText))
+                        .Include(u=>u.Judgment_Countries)
                         .ToList();
                 }
                 else
-                    items = _context.States.ToList();
+                    items = _context.States.Include(u => u.Judgment_Countries).ToList();
 
                 items = DoSort(items, SortProperty, sortOrder);
 
-                PaginatedList<STATE> retItems = new PaginatedList<STATE>(items, pageIndex, pageSize);
+                PaginatedList<State> retItems = new PaginatedList<State>(items, pageIndex, pageSize);
 
                 return retItems;
             }
 
-            public STATE GetStates(int id)
+            public State GetStates(int id)
             {
-                STATE item = _context.States.Where(u => u.Id == id).FirstOrDefault();
+                State item = _context.States.Where(u => u.Id == id).FirstOrDefault();
                 return item;
             }
             public bool IsItemExists(string name)
@@ -715,31 +719,31 @@ namespace ELaw.Repositories
             {
                 _context = context;
             }
-            public JUDGMENT_LANGUAGE Create(JUDGMENT_LANGUAGE JUDGMENT_LANGUAGE)
+            public Judgment_Language Create(Judgment_Language Judgment_Language)
             {
-                _context.Judgment_Languages.Add(JUDGMENT_LANGUAGE);
+                _context.Judgment_Languages.Add(Judgment_Language);
                 _context.SaveChanges();
-                return JUDGMENT_LANGUAGE;
+                return Judgment_Language;
             }
 
-            public JUDGMENT_LANGUAGE Delete(JUDGMENT_LANGUAGE JUDGMENT_LANGUAGE)
+            public Judgment_Language Delete(Judgment_Language Judgment_Language)
             {
-                _context.Judgment_Languages.Attach(JUDGMENT_LANGUAGE);
-                _context.Entry(JUDGMENT_LANGUAGE).State = EntityState.Deleted;
+                _context.Judgment_Languages.Attach(Judgment_Language);
+                _context.Entry(Judgment_Language).State = EntityState.Deleted;
                 _context.SaveChanges();
-                return JUDGMENT_LANGUAGE;
+                return Judgment_Language;
             }
 
-            public JUDGMENT_LANGUAGE Edit(JUDGMENT_LANGUAGE JUDGMENT_LANGUAGE)
+            public Judgment_Language Edit(Judgment_Language Judgment_Language)
             {
-                _context.Judgment_Languages.Attach(JUDGMENT_LANGUAGE);
-                _context.Entry(JUDGMENT_LANGUAGE).State = EntityState.Modified;
+                _context.Judgment_Languages.Attach(Judgment_Language);
+                _context.Entry(Judgment_Language).State = EntityState.Modified;
                 _context.SaveChanges();
-                return JUDGMENT_LANGUAGE;
+                return Judgment_Language;
             }
 
 
-            private List<JUDGMENT_LANGUAGE> DoSort(List<JUDGMENT_LANGUAGE> items, string SortProperty, SortOrder sortOrder)
+            private List<Judgment_Language> DoSort(List<Judgment_Language> items, string SortProperty, SortOrder sortOrder)
             {
 
                 if (SortProperty.ToLower() == "name")
@@ -753,9 +757,9 @@ namespace ELaw.Repositories
                 return items;
             }
 
-            public PaginatedList<JUDGMENT_LANGUAGE> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
+            public PaginatedList<Judgment_Language> GetItems(string SortProperty, SortOrder sortOrder, string SearchText = "", int pageIndex = 1, int pageSize = 5)
             {
-                List<JUDGMENT_LANGUAGE> items;
+                List<Judgment_Language> items;
 
                 if (SearchText != "" && SearchText != null)
                 {
@@ -767,14 +771,14 @@ namespace ELaw.Repositories
 
                 items = DoSort(items, SortProperty, sortOrder);
 
-                PaginatedList<JUDGMENT_LANGUAGE> retItems = new PaginatedList<JUDGMENT_LANGUAGE>(items, pageIndex, pageSize);
+                PaginatedList<Judgment_Language> retItems = new PaginatedList<Judgment_Language>(items, pageIndex, pageSize);
 
                 return retItems;
             }
 
-            public JUDGMENT_LANGUAGE GetJudgment_Language(int id)
+            public Judgment_Language GetJudgment_Language(int id)
             {
-                JUDGMENT_LANGUAGE item = _context.Judgment_Languages.Where(u => u.Id == id).FirstOrDefault();
+                Judgment_Language item = _context.Judgment_Languages.Where(u => u.Id == id).FirstOrDefault();
                 return item;
             }
             public bool IsItemExists(string name)
@@ -857,14 +861,14 @@ namespace ELaw.Repositories
                     else
                         items = items.OrderByDescending(n => n.JUDGMENT_NAME_ADDITIONAL).ToList();
                 }
-                else if (SortProperty == "COURT_TYPE")
+                else if (SortProperty == "Court_Type")
                 {
                     if (sortOrder == SortOrder.Ascending)
                         items = items.OrderBy(n => n.COURT_TYPE).ToList();
                     else
                         items = items.OrderByDescending(n => n.COURT_TYPE).ToList();
                 }
-                else if (SortProperty == "JUDGE_NAME")
+                else if (SortProperty == "Judge_Name")
                 {
                     if (sortOrder == SortOrder.Ascending)
                         items = items.OrderBy(n => n.JUDGE_NAME).ToList();
@@ -892,49 +896,49 @@ namespace ELaw.Repositories
                     else
                         items = items.OrderByDescending(n => n.JUDGMENT_DATE).ToList();
                 }
-                else if (SortProperty == "JUDGMENT_COUNTRY")
+                else if (SortProperty == "Judgment_Country")
                 {
                     if (sortOrder == SortOrder.Ascending)
                         items = items.OrderBy(n => n.JUDGMENT_COUNTRY).ToList();
                     else
                         items = items.OrderByDescending(n => n.JUDGMENT_COUNTRY).ToList();
                 }
-                else if (SortProperty == "STATE")
+                else if (SortProperty == "State")
                 {
                     if (sortOrder == SortOrder.Ascending)
                         items = items.OrderBy(n => n.STATE).ToList();
                     else
                         items = items.OrderByDescending(n => n.STATE).ToList();
                 }
-                else if (SortProperty == "JUDGMENT_LANGUAGE")
+                else if (SortProperty == "Judgment_Language")
                 {
                     if (sortOrder == SortOrder.Ascending)
                         items = items.OrderBy(n => n.JUDGMENT_LANGUAGE).ToList();
                     else
                         items = items.OrderByDescending(n => n.JUDGMENT_LANGUAGE).ToList();
                 }
-                else if (SortProperty == "CATCHWORD_LV1")
+                else if (SortProperty == "Catchword_Lv1")
                 {
                     if (sortOrder == SortOrder.Ascending)
                         items = items.OrderBy(n => n.CATCHWORD_LV1).ToList();
                     else
                         items = items.OrderByDescending(n => n.CATCHWORD_LV1).ToList();
                 }
-                else if (SortProperty == "CATCHWORD_LV2")
+                else if (SortProperty == "Catchword_Lv2")
                 {
                     if (sortOrder == SortOrder.Ascending)
                         items = items.OrderBy(n => n.CATCHWORD_LV2).ToList();
                     else
                         items = items.OrderByDescending(n => n.CATCHWORD_LV2).ToList();
                 }
-                else if (SortProperty == "CATCHWORD_LV3")
+                else if (SortProperty == "Catchword_Lv3")
                 {
                     if (sortOrder == SortOrder.Ascending)
                         items = items.OrderBy(n => n.CATCHWORD_LV3).ToList();
                     else
                         items = items.OrderByDescending(n => n.CATCHWORD_LV3).ToList();
                 }
-                else if (SortProperty == "CATCHWORD_LV4")
+                else if (SortProperty == "Catchword_Lv4")
                 {
                     if (sortOrder == SortOrder.Ascending)
                         items = items.OrderBy(n => n.CATCHWORD_LV4).ToList();
@@ -952,13 +956,13 @@ namespace ELaw.Repositories
 
                 if (SearchText != "" && SearchText != null)
                 {
-                    items = _context.LawReviews.Where(n => n.LAWREVIEW_ID.ToString().Contains(SearchText) || n.JUDGMENT_NAME.Contains(SearchText) || n.JUDGMENT_NAME_VERSUS.Contains(SearchText) || n.JUDGMENT_NAME_ADDITIONAL.Contains(SearchText) || n.Court_Types.Name.Contains(SearchText) || n.Judge_Names.Name.Contains(SearchText) || n.JUDGMENT_NUMBER.Contains(SearchText) || n.JUDGMENT_DATE.Contains(SearchText) || n.HEADNOTE.Contains(SearchText) || n.Judgment_Countries.Name.Contains(SearchText) || n.States.Name.Contains(SearchText) || n.Judgment_Languages.Name.Contains(SearchText) || n.Catchword_Lv1.Name.Contains(SearchText) || n.Catchword_Lv2.Name.Contains(SearchText) || n.Catchword_Lv3.Name.Contains(SearchText) || n.Catchword_Lv4.Name.Contains(SearchText) || n.VERDICT.Contains(SearchText))
-                        .Include(u => u.Court_Types).Include(r => r.Judge_Names).Include(s => s.Judgment_Countries).Include(c => c.States).Include(t => t.Judgment_Languages).Include(v => v.Catchword_Lv1).Include(w => w.Catchword_Lv2).Include(x => x.Catchword_Lv3).Include(y => y.Catchword_Lv4)
+                    items = _context.LawReviews.Where(n => n.LAWREVIEW_ID.ToString().Contains(SearchText) || n.JUDGMENT_NAME.Contains(SearchText) || n.JUDGMENT_NAME_VERSUS.Contains(SearchText) || n.JUDGMENT_NAME_ADDITIONAL.Contains(SearchText) || n.Court_Types.Name.Contains(SearchText) || n.Judge_Names.Name.Contains(SearchText) || n.JUDGMENT_NUMBER.Contains(SearchText) || n.JUDGMENT_DATE.Contains(SearchText) || n.HEADNOTE.Contains(SearchText) || n.Judgment_Countries.Name.Contains(SearchText) || n.States.Name.Contains(SearchText) || n.Judgment_Languages.Name.Contains(SearchText) || n.Catchword_Lv1s.Name.Contains(SearchText) || n.Catchword_Lv2s.Name.Contains(SearchText) || n.Catchword_Lv3s.Name.Contains(SearchText) || n.Catchword_Lv4s.Name.Contains(SearchText) || n.VERDICT.Contains(SearchText))
+                        .Include(u => u.Court_Types).Include(r => r.Judge_Names).Include(s => s.Judgment_Countries).Include(c => c.States).Include(t => t.Judgment_Languages).Include(v => v.Catchword_Lv1s).Include(w => w.Catchword_Lv2s).Include(x => x.Catchword_Lv3s).Include(y => y.Catchword_Lv4s)
                         .ToList();
                 }
                 else
                     items = _context.LawReviews
-                        .Include(u => u.Court_Types).Include(r => r.Judge_Names).Include(s => s.Judgment_Countries).Include(c => c.States).Include(t => t.Judgment_Languages).Include(v => v.Catchword_Lv1).Include(w => w.Catchword_Lv2).Include(x => x.Catchword_Lv3).Include(y => y.Catchword_Lv4)
+                        .Include(u => u.Court_Types).Include(r => r.Judge_Names).Include(s => s.Judgment_Countries).Include(c => c.States).Include(t => t.Judgment_Languages).Include(v => v.Catchword_Lv1s).Include(w => w.Catchword_Lv2s).Include(x => x.Catchword_Lv3s).Include(y => y.Catchword_Lv4s)
                         .ToList();
 
                 items = DoSort(items, SortProperty, sortOrder);
