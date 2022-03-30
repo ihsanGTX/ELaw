@@ -215,7 +215,16 @@ namespace ELaw.Controllers
 
         public IActionResult Details(int id)
         {
-            LawReview lawReview = _context.LawReviews.Include(b => b.ReferredCases)/*.Include(c => c.ReferredLegislations).Include(d => d.Appellants).Include(e => e.Applicants).Include(f => f.Claimants).Include(g => g.Companies).Include(h => h.Defendents).Include(i => i.Liquidators).Include(j => j.Plaintiffs).Include(k => k.Respondents).Include(l => l.ThirdParties)*/.Where(a => a.LAWREVIEW_ID == id).FirstOrDefault();
+            ViewBag.Court_Types = GetCourt_Types();
+            ViewBag.Judge_Names = GetJudge_Names();
+            ViewBag.Judgment_Countries = GetJudgment_Countries();
+            ViewBag.Judgment_Languages = GetJudgment_Languages();
+            ViewBag.States = GetStates();
+            ViewBag.Catchword_Lv1 = GetCatchword_Lv1();
+            ViewBag.Catchword_Lv2 = GetCatchword_Lv2();
+            ViewBag.Catchword_Lv3 = GetCatchword_Lv3();
+            ViewBag.Catchword_Lv4 = GetCatchword_Lv4();
+            LawReview lawReview = _context.LawReviews.Include(b => b.ReferredCases).Include(c => c.ReferredLegislations)/*.Include(d => d.Appellants).Include(e => e.Applicants).Include(f => f.Claimants).Include(g => g.Companies).Include(h => h.Defendents).Include(i => i.Liquidators).Include(j => j.Plaintiffs).Include(k => k.Respondents).Include(l => l.ThirdParties)*/.Where(a => a.LAWREVIEW_ID == id).FirstOrDefault();
             return View(lawReview);
         }
 
@@ -299,7 +308,16 @@ namespace ELaw.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
-            LawReview lawReview = _context.LawReviews.Include(b => b.ReferredCases).Include(c => c.ReferredLegislations)/*.Include(d => d.Appellants).Include(e => e.Applicants).Include(f => f.Claimants).Include(g => g.Companies).Include(h => h.Defendents).Include(i => i.Liquidators).Include(j => j.Plaintiffs).Include(k => k.Respondents).Include(l => l.ThirdParties)*/.Where(a => a.LAWREVIEW_ID == id).FirstOrDefault();
+            ViewBag.Court_Types = GetCourt_Types();
+            ViewBag.Judge_Names = GetJudge_Names();
+            ViewBag.Judgment_Countries = GetJudgment_Countries();
+            ViewBag.Judgment_Languages = GetJudgment_Languages();
+            ViewBag.States = GetStates();
+            ViewBag.Catchword_Lv1 = GetCatchword_Lv1();
+            ViewBag.Catchword_Lv2 = GetCatchword_Lv2();
+            ViewBag.Catchword_Lv3 = GetCatchword_Lv3();
+            ViewBag.Catchword_Lv4 = GetCatchword_Lv4();
+            LawReview lawReview = _context.LawReviews.Include(b => b.ReferredCases).Include(b => b.ReferredLegislations)/*.Include(d => d.Appellants).Include(e => e.Applicants).Include(f => f.Claimants).Include(g => g.Companies).Include(h => h.Defendents).Include(i => i.Liquidators).Include(j => j.Plaintiffs).Include(k => k.Respondents).Include(l => l.ThirdParties)*/.Where(a => a.LAWREVIEW_ID == id).FirstOrDefault();
             TempData.Keep();
             return View(lawReview);
         }
